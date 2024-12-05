@@ -1,0 +1,55 @@
+name: cms-fresh-apples
+recipe: drupal10
+config:
+  webroot: web
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+  database:
+    type: mariadb:10.6
+    portforward: true
+    creds:
+      database: 'drupal11'
+      password: 'drupal11'
+      user: 'drupal11'
+      host: 'database'
+      port: '3306'
+    run:
+      # Creates the databases as root since the app user does not have those privileges
+      - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS drupal; GRANT ALL PRIVILEGES ON drupal.* TO 'drupal'@'%' IDENTIFIED by 'drupal';"
+  appserver:
+    xdebug: 'debug'
+    scanner: false
+    overrides:
+      environment:
+        # Support debugging Drush with XDEBUG.
+        PHP_IDE_CONFIG: "serverName=appserver"
+        # If you want you can adjust this configuration to eneble profiling or
+        # other XDEBUG tool. Remember that you need to run lando rebuild -y
+        # after changing this:
+        # XDEBUG_MODE: "coverage,debug,develop,profile"
+        XDEBUG_MODE: "debug"
+        SIMPLESAMLPHP_CONFIG_DIR: "/app/simplesamlphp/config"
+        XDEBUG_CONFIG: discover_client_host=1
+        SIMPLETEST_DB: mysql://drupal:drupal@database/drupal#test
+    build_as_root:
+      # add a2enmod headers to enable mod_headers
+      # for add in header "Access-Control-Allow-Origin" for specific json files
+      - a2enmod headers
+      - service apache2 reload
+      - apt-get update && apt-get install -y imagemagick
+      - docker-php-ext-install sysvsem && docker-php-ext-enable sysvsem
+      # Installs nodejs for running Jest unit tests
+      - curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+      - apt-get install -y nodejs
+    build:
+      - "composer install"
+      - "vendor/squizlabs/php_codesniffer/bin/phpcs --config-set installed_paths /app/vendor/drupal/coder/coder_sniffer"
+  # Mailhog
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
