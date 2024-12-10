@@ -1,8 +1,39 @@
 taxonomies:
+  show_types:
+    -
+      vid: show_types
+      tid: '23'
+      langcode: en
+      name: Movie
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6d72128f-0ebc-429e-8156-e5ce727fde14
+    -
+      vid: show_types
+      tid: '24'
+      langcode: en
+      name: Series
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 35af721d-50d7-4634-b1b8-04e848f2b614
+    -
+      vid: show_types
+      tid: '25'
+      langcode: en
+      name: 'Short film'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 74bb008d-bd68-4f8c-9af3-3e64e00a685b
   genre:
     -
       vid: genre
-      tid: '1'
+      tid: '3'
       langcode: en
       name: Action
       description__value: null
@@ -12,7 +43,7 @@ taxonomies:
       uuid: 646feadc-b98f-4420-bd38-5da147dbd86a
     -
       vid: genre
-      tid: '2'
+      tid: '4'
       langcode: en
       name: Adventure
       description__value: null
@@ -22,7 +53,7 @@ taxonomies:
       uuid: d6071217-cdd2-42a1-9859-b3d2b0e94f76
     -
       vid: genre
-      tid: '3'
+      tid: '5'
       langcode: en
       name: Animation
       description__value: null
@@ -32,7 +63,7 @@ taxonomies:
       uuid: 4a738d61-87ad-4115-af71-3b2ee0763d68
     -
       vid: genre
-      tid: '4'
+      tid: '6'
       langcode: en
       name: Biography
       description__value: null
@@ -42,7 +73,7 @@ taxonomies:
       uuid: 3a537ffc-f225-4438-95e8-1f890e996f54
     -
       vid: genre
-      tid: '5'
+      tid: '7'
       langcode: en
       name: Comedy
       description__value: null
@@ -52,7 +83,7 @@ taxonomies:
       uuid: d18979b1-e753-473f-878e-55a60c5716c8
     -
       vid: genre
-      tid: '6'
+      tid: '8'
       langcode: en
       name: Crime
       description__value: null
@@ -62,7 +93,7 @@ taxonomies:
       uuid: d53f0e9b-1b1b-478b-9615-31bcc30b0894
     -
       vid: genre
-      tid: '7'
+      tid: '9'
       langcode: en
       name: Documentary
       description__value: null
@@ -72,7 +103,7 @@ taxonomies:
       uuid: 3bb7e797-1f38-4fc1-ac79-d194638831ad
     -
       vid: genre
-      tid: '8'
+      tid: '10'
       langcode: en
       name: Drama
       description__value: null
@@ -82,7 +113,7 @@ taxonomies:
       uuid: aeb812dc-0b34-4fb0-8849-0254cf6099eb
     -
       vid: genre
-      tid: '9'
+      tid: '11'
       langcode: en
       name: Family
       description__value: null
@@ -92,7 +123,7 @@ taxonomies:
       uuid: 3a8b3008-8afd-4b88-94f3-f50866fd434b
     -
       vid: genre
-      tid: '10'
+      tid: '12'
       langcode: en
       name: Fantasy
       description__value: null
@@ -102,7 +133,7 @@ taxonomies:
       uuid: 345afd68-60e5-4241-a552-0558bb254430
     -
       vid: genre
-      tid: '11'
+      tid: '13'
       langcode: en
       name: History
       description__value: null
@@ -112,7 +143,7 @@ taxonomies:
       uuid: be3f8efa-325c-4051-bb5e-11d31fdc53d5
     -
       vid: genre
-      tid: '12'
+      tid: '14'
       langcode: en
       name: Horror
       description__value: null
@@ -122,7 +153,7 @@ taxonomies:
       uuid: 929aedd7-ebdf-436d-88a8-97b96aec8102
     -
       vid: genre
-      tid: '13'
+      tid: '15'
       langcode: en
       name: Musical
       description__value: null
@@ -132,7 +163,7 @@ taxonomies:
       uuid: 565101e2-cb84-4eba-95c7-a17679233556
     -
       vid: genre
-      tid: '14'
+      tid: '16'
       langcode: en
       name: Mystery
       description__value: null
@@ -142,7 +173,7 @@ taxonomies:
       uuid: 7765fbde-d9b3-45be-9b41-b32bc3a8aac5
     -
       vid: genre
-      tid: '15'
+      tid: '17'
       langcode: en
       name: Romance
       description__value: null
@@ -152,7 +183,7 @@ taxonomies:
       uuid: 9fb64a1c-c6e6-4ed8-8264-153967c1257a
     -
       vid: genre
-      tid: '16'
+      tid: '18'
       langcode: en
       name: 'Science Fiction (Sci-Fi)'
       description__value: null
@@ -162,7 +193,7 @@ taxonomies:
       uuid: a73ca897-fc6a-4e39-8fa4-ac79eac506c0
     -
       vid: genre
-      tid: '17'
+      tid: '19'
       langcode: en
       name: Sport
       description__value: null
@@ -172,7 +203,7 @@ taxonomies:
       uuid: a5b98de3-3ca2-45f7-a44d-f758224fa1ea
     -
       vid: genre
-      tid: '18'
+      tid: '20'
       langcode: en
       name: Thriller
       description__value: null
@@ -182,7 +213,7 @@ taxonomies:
       uuid: 19add543-e23b-4235-ac36-d2dfb922c457
     -
       vid: genre
-      tid: '19'
+      tid: '21'
       langcode: en
       name: War
       description__value: null
@@ -192,7 +223,7 @@ taxonomies:
       uuid: 0d911b02-f137-42c9-851b-7cdb5007cac8
     -
       vid: genre
-      tid: '20'
+      tid: '22'
       langcode: en
       name: Western
       description__value: null
