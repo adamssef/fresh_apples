@@ -1,0 +1,9 @@
+uuid: 6a11e6c8-92c3-4804-b22b-6529deb24074
+langcode: en
+status: true
+dependencies: {  }
+name: 'Persona roles'
+vid: persona_roles
+description: null
+weight: 0
+new_revision: false

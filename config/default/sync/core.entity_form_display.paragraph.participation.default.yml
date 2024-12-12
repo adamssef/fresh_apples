@@ -1,0 +1,36 @@
+uuid: cb829ffc-0cef-4ac1-94c6-3f1f62fb0803
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.participation.field_persona
+    - field.field.paragraph.participation.field_role
+    - paragraphs.paragraphs_type.participation
+id: paragraph.participation.default
+targetEntityType: paragraph
+bundle: participation
+mode: default
+content:
+  field_persona:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_role:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
