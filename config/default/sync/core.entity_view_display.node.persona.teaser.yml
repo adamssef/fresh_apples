@@ -26,3 +26,4 @@ hidden:
   field_persona_birth_place: true
   field_persona_image: true
   field_persona_name: true
+  langcode: true
