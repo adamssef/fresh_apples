@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.persona.field_persona_birth_date
+    - field.field.node.persona.field_persona_birth_place
     - field.field.node.persona.field_persona_image
     - field.field.node.persona.field_persona_name
     - image.style.thumbnail
     - node.type.persona
   module:
+    - datetime
     - image
     - path
 id: node.persona.default
@@ -20,6 +23,20 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_persona_birth_date:
+    type: datetime_default
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_persona_birth_place:
+    type: string_textfield
+    weight: 125
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_persona_image:
     type: image_image

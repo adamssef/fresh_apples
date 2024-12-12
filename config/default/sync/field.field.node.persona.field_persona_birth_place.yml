@@ -1,0 +1,19 @@
+uuid: f5998b44-8320-4bae-ac8f-956c64e944f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_persona_birth_place
+    - node.type.persona
+id: node.persona.field_persona_birth_place
+field_name: field_persona_birth_place
+entity_type: node
+bundle: persona
+label: 'Persona Birth Place'
+description: 'Place at which the person was born. Usually "[City], [Country]"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
