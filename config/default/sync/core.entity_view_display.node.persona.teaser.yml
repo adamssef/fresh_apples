@@ -1,0 +1,24 @@
+uuid: f2ac9788-077c-400d-be57-02d8e0fdafdb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.persona.field_persona_image
+    - field.field.node.persona.field_persona_name
+    - node.type.persona
+  module:
+    - user
+id: node.persona.teaser
+targetEntityType: node
+bundle: persona
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_persona_image: true
+  field_persona_name: true
