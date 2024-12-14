@@ -1,0 +1,10 @@
+uuid: e3843fad-e9f6-4aaf-86c5-32cdf2d115c8
+langcode: en
+status: true
+dependencies: {  }
+id: participation
+label: Participation
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

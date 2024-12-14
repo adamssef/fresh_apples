@@ -1,0 +1,30 @@
+uuid: 12fe62fa-1dc7-4a6e-849c-a38d875db491
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.participation.field_persona
+    - field.field.paragraph.participation.field_role
+    - paragraphs.paragraphs_type.participation
+id: paragraph.participation.default
+targetEntityType: paragraph
+bundle: participation
+mode: default
+content:
+  field_persona:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_role:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }
