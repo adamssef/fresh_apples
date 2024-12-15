@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - node.type.review
   module:
     - comment
     - contact
     - filter
-    - media
+    - node
     - search
     - system
 _core:
@@ -23,4 +24,4 @@ permissions:
   - 'access site-wide contact form'
   - 'search content'
   - 'use text format restricted_html'
-  - 'view media'
+  - 'view review revisions'

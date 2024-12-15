@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.review
   module:
     - comment
     - contact
     - file
     - filter
-    - media
+    - node
     - search
     - shortcut
     - system
@@ -29,4 +30,4 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
-  - 'view media'
+  - 'view review revisions'

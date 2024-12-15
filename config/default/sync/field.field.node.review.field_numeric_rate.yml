@@ -1,0 +1,21 @@
+uuid: bf71d601-a1bb-44f4-8dc2-e9067610a1de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_numeric_rate
+    - node.type.review
+  module:
+    - options
+id: node.review.field_numeric_rate
+field_name: field_numeric_rate
+entity_type: node
+bundle: review
+label: 'Numeric rate'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

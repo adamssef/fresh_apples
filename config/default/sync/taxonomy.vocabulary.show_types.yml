@@ -1,9 +1,0 @@
-uuid: af0cec21-84ae-4297-b414-63180beb97e4
-langcode: en
-status: true
-dependencies: {  }
-name: 'Show types'
-vid: show_types
-description: null
-weight: 0
-new_revision: false

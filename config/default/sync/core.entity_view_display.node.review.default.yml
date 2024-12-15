@@ -1,0 +1,48 @@
+uuid: 57d9acfc-e5ac-48d3-b97e-9f9be526ed78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.review.field_numeric_rate
+    - field.field.node.review.field_review_text
+    - field.field.node.review.field_title
+    - node.type.review
+  module:
+    - entity_reference_revisions
+    - options
+    - text
+    - user
+id: node.review.default
+targetEntityType: node
+bundle: review
+mode: default
+content:
+  field_numeric_rate:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_review_text:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

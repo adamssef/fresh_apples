@@ -1,0 +1,25 @@
+uuid: fc9c654e-c42c-40df-a4e6-0bed5f355a23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_text
+    - node.type.review
+  module:
+    - entity_reference_revisions
+id: node.review.field_review_text
+field_name: field_review_text
+entity_type: node
+bundle: review
+label: 'Review text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+field_type: entity_reference_revisions

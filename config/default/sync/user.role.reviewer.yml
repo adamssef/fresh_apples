@@ -1,0 +1,27 @@
+uuid: fcb7e5b8-4bb7-4316-8e95-3040649bfe80
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.review
+  module:
+    - node
+    - search
+    - system
+    - toolbar
+id: reviewer
+label: Reviewer
+weight: 4
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access toolbar'
+  - 'change own username'
+  - 'create review content'
+  - 'delete own review content'
+  - 'search content'
+  - 'select account cancellation method'
+  - 'use advanced search'
+  - 'view own unpublished content'
+  - 'view review revisions'
+  - 'view user email addresses'

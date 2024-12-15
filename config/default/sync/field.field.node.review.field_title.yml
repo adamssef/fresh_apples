@@ -1,0 +1,24 @@
+uuid: 432a80d2-8d05-449e-8c21-5c99f1de74e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title
+    - filter.format.plain_text
+    - node.type.review
+  module:
+    - text
+id: node.review.field_title
+field_name: field_title
+entity_type: node
+bundle: review
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text
