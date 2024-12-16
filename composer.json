@@ -23,6 +23,7 @@
         "drupal/devel": "^5.3",
         "drupal/paragraphs": "^1.18",
         "drupal/structure_sync": "^2.0",
+        "drupal/twig_extensions": "^2.2",
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^12.5"
     },
