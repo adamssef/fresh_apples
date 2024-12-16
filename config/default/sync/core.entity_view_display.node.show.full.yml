@@ -1,8 +1,9 @@
-uuid: cf6b0ec6-c40f-4e7d-9b72-0e90acb36618
+uuid: 6f1c1b76-2a75-4a0d-adb4-29eccdbbb723
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.show.body
     - field.field.node.show.field_participation
     - field.field.node.show.field_show_cover_image
@@ -10,12 +11,17 @@ dependencies:
     - node.type.show
   module:
     - entity_reference_revisions
+    - layout_builder
     - text
     - user
-id: node.show.default
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.show.full
 targetEntityType: node
 bundle: show
-mode: default
+mode: full
 content:
   body:
     type: text_default

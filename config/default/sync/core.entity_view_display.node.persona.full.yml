@@ -1,8 +1,9 @@
-uuid: 3a4df417-0839-4528-8bdc-aa59d5339926
+uuid: d1977139-37d6-4acc-a248-e98311919199
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.persona.field_persona_birth_date
     - field.field.node.persona.field_persona_birth_place
     - field.field.node.persona.field_persona_image
@@ -12,11 +13,16 @@ dependencies:
   module:
     - datetime
     - image
+    - layout_builder
     - user
-id: node.persona.default
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.persona.full
 targetEntityType: node
 bundle: persona
-mode: default
+mode: full
 content:
   field_persona_birth_date:
     type: datetime_default

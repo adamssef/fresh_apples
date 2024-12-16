@@ -1,0 +1,5 @@
+name: 'Show'
+type: module
+description: 'Shows all the information related to a chosen show'
+package: show_package
+core_version_requirement: ^10 || ^11
