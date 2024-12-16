@@ -25,6 +25,7 @@
         "drupal/structure_sync": "^2.0",
         "drupal/twig_extensions": "^2.2",
         "drupal/twig_tweak": "^3.4",
+        "drupal/twig_ui": "^2.1",
         "drush/drush": "^12.5"
     },
     "conflict": {
