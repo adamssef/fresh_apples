@@ -1,0 +1,21 @@
+uuid: db73d1dc-c18b-47c7-b6e5-9b6134771c61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_character_name
+    - paragraphs.paragraphs_type.participation
+id: paragraph.participation.field_character_name
+field_name: field_character_name
+entity_type: paragraph
+bundle: participation
+label: 'Character name'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: no-name
+default_value_callback: ''
+settings: {  }
+field_type: string

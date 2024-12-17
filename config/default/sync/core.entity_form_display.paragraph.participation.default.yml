@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.participation.field_character_name
     - field.field.paragraph.participation.field_persona
     - field.field.paragraph.participation.field_role
     - paragraphs.paragraphs_type.participation
@@ -11,6 +12,14 @@ targetEntityType: paragraph
 bundle: participation
 mode: default
 content:
+  field_character_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_persona:
     type: entity_reference_autocomplete
     weight: 0
