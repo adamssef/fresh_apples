@@ -22,6 +22,7 @@
         "drupal/core-recommended": "^10.3",
         "drupal/devel": "^5.3",
         "drupal/paragraphs": "^1.18",
+        "drupal/pathauto": "^1.13",
         "drupal/structure_sync": "^2.0",
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^12.5"
