@@ -1,0 +1,14 @@
+name: Fresh apples theme
+type: theme
+description: 'A custom theme with just header, content, and footer regions'
+package: Custom
+core_version_requirement: ^10
+base theme: olivero
+
+libraries:
+  - fresh_apples_theme/global-styling
+
+regions:
+  header: 'Header'
+  content: 'Main Content'
+  footer: 'Footer'

@@ -1,0 +1,20 @@
+uuid: a0e21bde-440b-4783-8dfd-180e4c758dae
+langcode: en
+status: false
+dependencies:
+  theme:
+    - fresh_apples_theme
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: fresh_apples_theme_primary_admin_actions
+theme: fresh_apples_theme
+region: header
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

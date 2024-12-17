@@ -1,0 +1,22 @@
+uuid: 0a86bdd1-909f-4a2c-9451-fe3b1e4e5553
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - fresh_apples_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: fresh_apples_theme_content
+theme: fresh_apples_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: cf55a58a-f802-40ce-8c2b-14f6baf3d1be
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - fresh_apples_theme
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: fresh_apples_theme_search_form_wide
+theme: fresh_apples_theme
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

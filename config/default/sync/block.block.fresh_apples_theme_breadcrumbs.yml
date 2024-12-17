@@ -1,0 +1,22 @@
+uuid: 7b391515-c523-4fb8-81e8-d06c0e77aba9
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - fresh_apples_theme
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: fresh_apples_theme_breadcrumbs
+theme: fresh_apples_theme
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }
