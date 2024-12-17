@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.persona.field_per
     - field.field.node.persona.field_persona_birth_date
     - field.field.node.persona.field_persona_birth_place
     - field.field.node.persona.field_persona_image
-    - field.field.node.persona.field_persona_name
+    - field.field.node.persona.field_persona_last_name
+    - field.field.node.persona.field_persona_middle_name
     - node.type.persona
   module:
     - user
@@ -22,8 +24,10 @@ content:
     weight: 100
     region: content
 hidden:
+  field_per: true
   field_persona_birth_date: true
   field_persona_birth_place: true
   field_persona_image: true
-  field_persona_name: true
+  field_persona_last_name: true
+  field_persona_middle_name: true
   langcode: true

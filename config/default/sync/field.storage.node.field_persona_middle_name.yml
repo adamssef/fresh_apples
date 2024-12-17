@@ -1,15 +1,15 @@
-uuid: 90aed74e-d19c-4b6c-a7c0-f02da79cf7db
+uuid: 1e97f1dc-a032-4452-be43-ed609137187d
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_persona_name
-field_name: field_persona_name
+id: node.field_persona_middle_name
+field_name: field_persona_middle_name
 entity_type: node
 type: string
 settings:
-  max_length: 255
+  max_length: 100
   case_sensitive: false
   is_ascii: false
 module: core

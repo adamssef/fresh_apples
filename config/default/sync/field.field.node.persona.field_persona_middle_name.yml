@@ -1,0 +1,19 @@
+uuid: 2ff4eb5e-a620-4fcd-9f7a-1b714a0d4740
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_persona_middle_name
+    - node.type.persona
+id: node.persona.field_persona_middle_name
+field_name: field_persona_middle_name
+entity_type: node
+bundle: persona
+label: 'Persona middle name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
