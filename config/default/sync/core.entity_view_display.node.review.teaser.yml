@@ -1,0 +1,25 @@
+uuid: ed8a0533-1044-41e7-9e7b-e26846c8798f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.review.field_review_content
+    - field.field.node.review.field_review_rating
+    - node.type.review
+  module:
+    - user
+id: node.review.teaser
+targetEntityType: node
+bundle: review
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_review_content: true
+  field_review_rating: true
+  langcode: true
