@@ -1,4 +1,4 @@
-uuid: ec3659d8-75ff-4913-9184-db6c467da7e8
+uuid: 8008f949-2e7f-4308-ac9c-5a3e0430c394
 langcode: en
 status: true
 dependencies:
@@ -11,9 +11,9 @@ id: node.persona.field_persona_birth_date
 field_name: field_persona_birth_date
 entity_type: node
 bundle: persona
-label: 'Persona Birth Date'
-description: 'Date at which the person was born'
-required: false
+label: 'Persona birth date'
+description: ''
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

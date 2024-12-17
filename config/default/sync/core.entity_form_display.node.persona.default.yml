@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.persona.field_per
     - field.field.node.persona.field_persona_birth_date
     - field.field.node.persona.field_persona_birth_place
     - field.field.node.persona.field_persona_image
@@ -26,23 +25,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_per:
-    type: string_textfield
-    weight: 7
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_persona_birth_date:
     type: datetime_default
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_persona_birth_place:
     type: string_textfield
-    weight: 12
+    weight: 11
     region: content
     settings:
       size: 60
@@ -106,6 +97,14 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 1
@@ -116,5 +115,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  title: true
+hidden: {  }

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.persona.field_per
     - field.field.node.persona.field_persona_birth_date
     - field.field.node.persona.field_persona_birth_place
     - field.field.node.persona.field_persona_image
@@ -24,7 +23,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_per: true
   field_persona_birth_date: true
   field_persona_birth_place: true
   field_persona_image: true
