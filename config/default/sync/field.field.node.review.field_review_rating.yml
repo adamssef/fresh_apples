@@ -1,0 +1,25 @@
+uuid: 5394a774-1b84-498c-8cfc-482cf2d76ebf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_rating
+    - node.type.review
+id: node.review.field_review_rating
+field_name: field_review_rating
+entity_type: node
+bundle: review
+label: 'Review Rating'
+description: 'How would you rate the Show on a scale of 0 to 10?'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 10
+  prefix: ''
+  suffix: ''
+field_type: integer
