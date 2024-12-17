@@ -1,0 +1,17 @@
+uuid: 23af222d-0052-4aeb-b19e-fff7488787f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.review
+  module:
+    - node
+id: reviewer
+label: Reviewer
+weight: 4
+is_admin: null
+permissions:
+  - 'create review content'
+  - 'edit own review content'
+  - 'revert review revisions'
+  - 'view review revisions'
