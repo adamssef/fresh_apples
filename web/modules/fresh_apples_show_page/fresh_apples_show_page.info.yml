@@ -1,0 +1,5 @@
+name: 'fresh_apples_show_page'
+type: module
+description: 'A module that implements single show page.'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11
