@@ -5,7 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.show.body
+    - field.field.node.show.field_available_languages
+    - field.field.node.show.field_genre
+    - field.field.node.show.field_length
     - field.field.node.show.field_participation
+    - field.field.node.show.field_release_year
     - field.field.node.show.field_show_cover_image
     - field.field.node.show.field_show_type
     - node.type.show
@@ -31,7 +35,11 @@ content:
     weight: 100
     region: content
 hidden:
+  field_available_languages: true
+  field_genre: true
+  field_length: true
   field_participation: true
+  field_release_year: true
   field_show_cover_image: true
   field_show_type: true
   langcode: true

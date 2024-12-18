@@ -1,0 +1,23 @@
+uuid: 2930b442-74ca-4680-b6e3-fd93a49c7d43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_length
+    - node.type.show
+id: node.show.field_length
+field_name: field_length
+entity_type: node
+bundle: show
+label: Length
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 10
+  max: 500
+  prefix: ''
+  suffix: ''
+field_type: integer

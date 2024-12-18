@@ -4,12 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.show.body
+    - field.field.node.show.field_available_languages
+    - field.field.node.show.field_genre
+    - field.field.node.show.field_length
     - field.field.node.show.field_participation
+    - field.field.node.show.field_release_year
     - field.field.node.show.field_show_cover_image
     - field.field.node.show.field_show_type
     - node.type.show
   module:
+    - datetime
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.show.default
@@ -24,6 +30,30 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  field_available_languages:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_genre:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_length:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
   field_participation:
     type: entity_reference_revisions_entity_view
     label: above
@@ -32,6 +62,15 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_release_year:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_year
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_show_cover_image:
     type: entity_reference_entity_view

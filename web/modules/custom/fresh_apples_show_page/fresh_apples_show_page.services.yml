@@ -1,0 +1,3 @@
+services:
+  fresh_apples_show_page.service:
+    class: Drupal\fresh_apples_show_page\Service\FreshApplesShowPageService

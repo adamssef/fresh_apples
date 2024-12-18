@@ -1,0 +1,54 @@
+uuid: d3c30401-afbe-4653-85fd-33788e24a5e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_available_languages
+field_name: field_available_languages
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: polish
+      label: Polski
+    -
+      value: english
+      label: Angielski
+    -
+      value: japanese
+      label: Japoński
+    -
+      value: niemiecki
+      label: Niemiecki
+    -
+      value: francuski
+      label: Francuski
+    -
+      value: hiszpanski
+      label: Hiszpański
+    -
+      value: wegierski
+      label: Węgierski
+    -
+      value: czeski
+      label: Czeski
+    -
+      value: ukrainski
+      label: Ukraiński
+    -
+      value: portugalski
+      label: Portugalski
+    -
+      value: hindi
+      label: Hindi
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
