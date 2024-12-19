@@ -29,3 +29,18 @@ function fresh_apples_show_page_theme_suggestions_region_alter(array &$suggestio
     }
   }
 }
+
+function fresh_apples_show_page_preprocess_page(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node) {
+    return;
+  }
+
+  $content_type = $node->bundle();
+
+  if ($content_type === 'show') {
+    $variables['#attached']['library'][] = 'fresh_apples_show_page/tailwind';
+
+  }
+}

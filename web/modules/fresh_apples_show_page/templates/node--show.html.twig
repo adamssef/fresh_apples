@@ -1,0 +1,44 @@
+<div class="font-semibold text-[30px] text-white mt-8">{{ show_data.show_title }}</div>
+<div class="text-white bg-[#1a1a1a] p-4 mt-6 rounded-[16px] max-w-[1280px] mb-8">
+  <span class="text-[#a0a3a1]">Opis</span>
+  {{ show_data.description|raw }}
+</div>
+<div class="flex gap-[20px] flex-col-reverse md:flex-row">
+  <div class="pt-6 rounded-[24px] border border-solid border-white w-full md:w-3/4">
+    <span class="pl-4 text-[#a0a3a1] pt-6">Ekipa filmowa</span>
+    <div class="flex flex-wrap justify-center items-center gap-[20px]">
+      {% for participation in show_data.participation_paragraphs %}
+        <div
+          class="text-white bg-[#1a1a1a] mt-6 rounded-[16px] w-fit p-4 inline-block w-[250px] h-[220px]">
+          <img class="rounded-[8px]" src="{{ participation.persona_image_url }}"
+               alt="Participator's image">
+          <div class="font-semibold">{{ participation.persona_full_name }}</div>
+          <div>{{ participation.role }}</div>
+          {% if participation.role == 'Actor' %}
+            <div>Jako: <span>{{ participation.character_name }}</span></div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="w-full md:w-1/4">
+    <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}" alt="Show image">
+    <div class="p-4 rounded-[24px] border border-solid border-white mt-4">
+      <div class="text-[#a0a3a1]">Rok wydania: {{ show_data.release_year }}</div>
+      <div class="text-[#a0a3a1]">Długość: {{ show_data.length_in_minutes }} minut</div>
+
+      <div class="text-[#a0a3a1]">Gatunek:</div>
+      <ul>
+        {% for genre in show_data.genres %}
+          <li>{{ genre }}</li>
+        {% endfor %}
+      </ul>
+      <div class="text-[#a0a3a1]">Języki:</div>
+      <ul>
+        {% for language in show_data.available_languages %}
+          <li>{{ language }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

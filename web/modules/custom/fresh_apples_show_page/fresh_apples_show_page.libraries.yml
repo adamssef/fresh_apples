@@ -1,0 +1,4 @@
+tailwind:
+  css:
+    theme:
+      dist/css/styles.css: {}
