@@ -1,0 +1,20 @@
+uuid: 1b228f3b-4cc9-48f4-bada-cae57d6cd126
+langcode: en
+status: true
+dependencies:
+  module:
+    - fresh_apples_header_menu
+  theme:
+    - fresh_apples_theme
+id: fresh_apples_theme_header_menu
+theme: fresh_apples_theme
+region: header
+weight: 0
+provider: null
+plugin: fresh_apples_header_menu_header_menu
+settings:
+  id: fresh_apples_header_menu_header_menu
+  label: header_menu
+  label_display: '0'
+  provider: fresh_apples_header_menu
+visibility: {  }

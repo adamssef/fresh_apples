@@ -12,7 +12,6 @@ dependencies:
     - node.type.persona
   module:
     - datetime
-    - image
     - user
 id: node.persona.default
 targetEntityType: node
@@ -45,15 +44,13 @@ content:
     weight: 105
     region: content
   field_persona_image:
-    type: image
+    type: entity_reference_entity_view
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 103
+    weight: 111
     region: content
   field_persona_last_name:
     type: string

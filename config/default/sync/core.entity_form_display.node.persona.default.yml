@@ -9,11 +9,10 @@ dependencies:
     - field.field.node.persona.field_persona_image
     - field.field.node.persona.field_persona_last_name
     - field.field.node.persona.field_persona_middle_name
-    - image.style.thumbnail
     - node.type.persona
   module:
     - datetime
-    - image
+    - media_library
     - path
 id: node.persona.default
 targetEntityType: node
@@ -49,12 +48,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_persona_image:
-    type: image_image
-    weight: 11
+    type: media_library_widget
+    weight: 26
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
   field_persona_last_name:
     type: string_textfield

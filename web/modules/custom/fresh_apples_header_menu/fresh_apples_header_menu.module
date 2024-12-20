@@ -13,3 +13,16 @@ function fresh_apples_header_menu_theme() {
     ],
   ];
 }
+
+function fresh_apples_header_menu_preprocess_page(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $is_admin_page = \Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject());
+
+
+  if ($is_admin_page) {
+    return;
+  }
+
+  $variables['#attached']['library'][] = 'fresh_apples_header_menu/tailwind';
+
+}
