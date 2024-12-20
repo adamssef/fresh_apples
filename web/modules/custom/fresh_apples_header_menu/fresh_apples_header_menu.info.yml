@@ -1,0 +1,5 @@
+name: 'Fresh Apples Header Menu'
+type: module
+description: 'Fresh Apples Header Mneu'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

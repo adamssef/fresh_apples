@@ -1,7 +1,8 @@
 module.exports = {
   mode: 'jit',
   content: [
-    './templates/**/*.html.twig',
+    './templates/node--show.html.twig',
+    './templates/region--content--show.html.twig',
   ],
   theme: {
     dropShadow: {

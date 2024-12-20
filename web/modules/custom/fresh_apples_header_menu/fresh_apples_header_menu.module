@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Fresh Apples Header Menu module.
+ */
+
+function fresh_apples_header_menu_theme() {
+  return [
+    'block__header_menu' => [
+      'template' => 'block--header-menu',
+      'variables' => [],
+    ],
+  ];
+}

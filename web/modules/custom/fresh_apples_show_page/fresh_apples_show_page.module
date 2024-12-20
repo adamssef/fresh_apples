@@ -11,6 +11,10 @@ function fresh_apples_show_page_theme() {
       'template' => 'region--content--show',
       'base hook' => 'region',
     ],
+    'node__show' => [
+      'template' => 'node--show',
+      'base hook' => 'node',
+    ],
   ];
 }
 
@@ -41,6 +45,19 @@ function fresh_apples_show_page_preprocess_page(&$variables) {
 
   if ($content_type === 'show') {
     $variables['#attached']['library'][] = 'fresh_apples_show_page/tailwind';
+  }
+}
 
+function fresh_apples_show_page_preprocess_node(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node) {
+    return;
+  }
+
+  $content_type = $node->bundle();
+
+  if ($content_type === 'show') {
+    $variables['show_data'] = \Drupal::service('fresh_apples_show_page.service')->prepareShowData($node);
   }
 }
