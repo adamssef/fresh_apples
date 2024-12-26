@@ -45,6 +45,7 @@ function fresh_apples_show_page_preprocess_page(&$variables) {
 
   if ($content_type === 'show') {
     $variables['#attached']['library'][] = 'fresh_apples_show_page/tailwind';
+    $variables['#attached']['library'][] = 'fresh_apples_show_page/swiper';
   }
 }
 

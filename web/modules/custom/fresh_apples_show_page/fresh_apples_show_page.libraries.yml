@@ -2,3 +2,14 @@ tailwind:
   css:
     theme:
       dist/css/styles.css: {}
+swiper:
+  version: 11.0.0
+  css:
+    theme:
+      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: { type: external }
+      css/swiper.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js: { type: external }
+    js/swiper-init.js: {}
+  dependencies:
+    - core/drupal
