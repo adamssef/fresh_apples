@@ -1,0 +1,33 @@
+.swiper {
+  height: 450px;
+}
+
+.bottom-container {
+  max-width: 100vw;
+}
+
+.desc-container {
+  max-width: 100vw;
+}
+
+.left {
+  width: 49%;
+}
+
+.right {
+  width: 49%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.swiper-pagination-bullet:not(:active) {
+  background-color: white;
+}
