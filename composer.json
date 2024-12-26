@@ -21,6 +21,7 @@
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
         "drupal/devel": "^5.3",
+        "drupal/migrate_source_csv": "^3.6",
         "drupal/paragraphs": "^1.18",
         "drupal/pathauto": "^1.13",
         "drupal/structure_sync": "^2.0",
@@ -39,7 +40,8 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
