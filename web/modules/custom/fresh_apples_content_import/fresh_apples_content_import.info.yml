@@ -1,0 +1,5 @@
+name: 'fresh_apples_content_import'
+type: module
+description: 'A module to import shows and other content into CMS'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

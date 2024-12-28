@@ -1,0 +1,9 @@
+uuid: 883e60e2-2aa0-4179-bfe4-056d9a7fc7e2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Spoken languages'
+vid: spoken_languages
+description: null
+weight: 0
+new_revision: false

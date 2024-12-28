@@ -1,51 +1,17 @@
-uuid: d3c30401-afbe-4653-85fd-33788e24a5e7
+uuid: 029eae84-fde4-4a8a-afd1-7505300ce5e7
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - options
+    - taxonomy
 id: node.field_available_languages
 field_name: field_available_languages
 entity_type: node
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: polish
-      label: Polski
-    -
-      value: english
-      label: Angielski
-    -
-      value: japanese
-      label: Japoński
-    -
-      value: niemiecki
-      label: Niemiecki
-    -
-      value: francuski
-      label: Francuski
-    -
-      value: hiszpanski
-      label: Hiszpański
-    -
-      value: wegierski
-      label: Węgierski
-    -
-      value: czeski
-      label: Czeski
-    -
-      value: ukrainski
-      label: Ukraiński
-    -
-      value: portugalski
-      label: Portugalski
-    -
-      value: hindi
-      label: Hindi
-  allowed_values_function: ''
-module: options
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: -1
 translatable: true

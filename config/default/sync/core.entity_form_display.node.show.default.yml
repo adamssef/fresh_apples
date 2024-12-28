@@ -40,8 +40,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_available_languages:
-    type: options_select
-    weight: 127
+    type: options_buttons
+    weight: 129
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -74,11 +74,12 @@ class FreshApplesShowPageService {
     $media_id = $node->get('field_show_cover_image')->target_id;
     $cover_image_url = $this->mediaService->getStyledImageUrl($media_id, 'wide');
     $show_type = $node->get('field_show_type')->referencedEntities()[0]->getName();
-    $languages = $node->get('field_available_languages')->getValue();
+    $languages = $node->get('field_available_languages')->referencedEntities();
 
     $available_languages = [];
+
     foreach ($languages as $language) {
-      $available_languages[] = $language['value'];
+      $available_languages[] = $language->getName();
     }
 
     $participation_paragraphs = $node->get('field_participation')->getValue();

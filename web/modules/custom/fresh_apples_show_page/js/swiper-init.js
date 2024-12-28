@@ -7,6 +7,10 @@
         new Swiper(element, {
           observer: true,
           observeParents: true,
+          resistance: true,
+          resistanceRatio: 0,
+          shortSwipes: true,
+          freeMode: false,
           navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",

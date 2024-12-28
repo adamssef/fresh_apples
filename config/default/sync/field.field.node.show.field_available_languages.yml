@@ -1,12 +1,11 @@
-uuid: 82466edd-0f22-4c5b-8131-d8e591d69bd7
+uuid: 4a8f565e-842d-45b8-b8f1-c0271ce04f37
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_available_languages
     - node.type.show
-  module:
-    - options
+    - taxonomy.vocabulary.spoken_languages
 id: node.show.field_available_languages
 field_name: field_available_languages
 entity_type: node
@@ -17,5 +16,14 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      spoken_languages: spoken_languages
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

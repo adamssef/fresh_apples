@@ -1,0 +1,34 @@
+id: movies_with_crew_csv
+label: 'Migration file to import movies with crew'
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  path: modules/custom/fresh_apples_content_import/sources/movies_with_crew.csv
+  ids: [id]
+process:
+  title: title
+  field_available_languages:
+    plugin: languages_loader
+    source: spoken_languages
+  body: overview
+  field_genre:
+    - plugin: genre_loader
+      source: genres
+  field_length: runtime_minutes
+  field_description: bottom_text
+  field_participation:
+    - plugin: participation_loader
+      source: people_details
+  field_release_year: release_date
+  field_show_cover_image:
+    plugin: url_to_media
+    source: poster_url
+  field_show_type:
+    plugin: default_value
+    default_value: 23
+    process:
+      plugin: taxonomy_term
+destination:
+  plugin: 'entity:node'
+  default_bundle: show

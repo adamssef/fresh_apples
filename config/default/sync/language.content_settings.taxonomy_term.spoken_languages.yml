@@ -1,0 +1,11 @@
+uuid: e1faceb4-bd70-4edb-a40f-61fca09c4e83
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.spoken_languages
+id: taxonomy_term.spoken_languages
+target_entity_type_id: taxonomy_term
+target_bundle: spoken_languages
+default_langcode: site_default
+language_alterable: false

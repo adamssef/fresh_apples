@@ -15,7 +15,6 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
-    - options
     - text
     - user
 id: node.show.default
@@ -31,11 +30,12 @@ content:
     weight: 101
     region: content
   field_available_languages:
-    type: list_default
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 107
+    weight: 109
     region: content
   field_genre:
     type: entity_reference_label

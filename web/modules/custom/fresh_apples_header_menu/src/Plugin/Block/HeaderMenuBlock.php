@@ -25,6 +25,13 @@ final class HeaderMenuBlock extends BlockBase {
   public function build():array {
     $build['content'] = [
       '#theme' => 'block__header_menu',
+      '#plugin_id' => $this->getPluginId(),
+      '#base_plugin_id' => $this->getBaseId(),
+      '#derivative_plugin_id' => $this->getDerivativeId(),
+      '#attributes' => [
+        'class' => ['header-menu'],
+      ],
+      'content' => [],
     ];
     return $build;
   }
