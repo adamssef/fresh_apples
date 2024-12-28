@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.review.field_is_from_ciritc
     - field.field.node.review.field_review_content
     - field.field.node.review.field_review_rating
     - node.type.review
@@ -20,6 +21,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_is_from_ciritc: true
   field_review_content: true
   field_review_rating: true
   langcode: true

@@ -1,0 +1,21 @@
+uuid: 6261ecb7-bd9a-422e-a3be-7eb682a204aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_from_ciritc
+    - node.type.review
+id: node.review.field_is_from_ciritc
+field_name: field_is_from_ciritc
+entity_type: node
+bundle: review
+label: 'Is from ciritc'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -27,6 +27,7 @@ module:
   file: 0
   filter: 0
   fresh_apples_content_import: 0
+  fresh_apples_frontpage: 0
   fresh_apples_header_menu: 0
   fresh_apples_show_page: 0
   help: 0

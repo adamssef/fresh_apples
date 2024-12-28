@@ -28,6 +28,7 @@ final class HeaderMenuBlock extends BlockBase {
       '#plugin_id' => $this->getPluginId(),
       '#base_plugin_id' => $this->getBaseId(),
       '#derivative_plugin_id' => $this->getDerivativeId(),
+      '#configuration' => $this->getConfiguration(),
       '#attributes' => [
         'class' => ['header-menu'],
       ],

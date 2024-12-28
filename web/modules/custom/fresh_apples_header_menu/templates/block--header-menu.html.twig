@@ -3,4 +3,10 @@
   <a class="inline-block text-white text-2xl" href="/movies">Filmy</a>
   <a class="inline-block text-white text-2xl" href="/series">Seriale</a>
   <a class="inline-block text-white text-2xl" href="/short-films">Filmy krótkometrażowe</a>
+  {% if not logged_in %}
+    <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
+  {% else %}
+    <a class="inline-block text-white text-2xl" href="/user/logout">Wyloguj się</a>
+  {% endif %}
+
 </header>

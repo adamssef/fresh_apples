@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.review.field_is_from_ciritc
     - field.field.node.review.field_review_content
     - field.field.node.review.field_review_rating
     - node.type.review
@@ -13,6 +14,16 @@ targetEntityType: node
 bundle: review
 mode: default
 content:
+  field_is_from_ciritc:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_review_content:
     type: basic_string
     label: above
