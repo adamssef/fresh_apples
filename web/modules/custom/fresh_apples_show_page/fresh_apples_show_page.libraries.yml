@@ -13,3 +13,7 @@ swiper:
     js/swiper-init.js: {}
   dependencies:
     - core/drupal
+fresh_apples_show_page:
+  css:
+    theme:
+      css/review-form.css: {}

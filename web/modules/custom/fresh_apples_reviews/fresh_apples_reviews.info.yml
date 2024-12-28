@@ -1,0 +1,5 @@
+name: 'fresh_apples_reviews'
+type: module
+description: 'A module that contains review related code and logi'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

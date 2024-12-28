@@ -1,0 +1,14 @@
+uuid: 64085bf3-116e-4791-92e3-6757fcca5713
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.regular_user
+  module:
+    - user
+id: user_remove_role_action.regular_user
+label: 'Remove the Regular user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: regular_user

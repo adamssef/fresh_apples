@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.review.field_is_from_ciritc
     - field.field.node.review.field_review_content
     - field.field.node.review.field_review_rating
+    - field.field.node.review.field_show
     - node.type.review
   module:
     - path
@@ -40,6 +41,16 @@ content:
     weight: 123
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_show:
+    type: entity_reference_autocomplete
+    weight: 125
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   langcode:

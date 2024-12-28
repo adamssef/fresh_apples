@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.review.field_is_from_ciritc
     - field.field.node.review.field_review_content
     - field.field.node.review.field_review_rating
+    - field.field.node.review.field_show
     - node.type.review
   module:
     - user
@@ -24,4 +25,5 @@ hidden:
   field_is_from_ciritc: true
   field_review_content: true
   field_review_rating: true
+  field_show: true
   langcode: true

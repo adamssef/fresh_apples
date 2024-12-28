@@ -1,12 +1,19 @@
 <header class="flex justify-center items-center gap-[30px] fixed top-0 left-0 w-full h-[65px] bg-[#1a1a1a] z-[100]">
-  <a class="inline-block text-white text-2xl" href="/"><img class="inline-block h-[40px]" src="/resources/header/fresh-apples-logo.svg" alt="Fresh Apples logo"  ml-6">Fresh Apples</a>
-  <a class="inline-block text-white text-2xl" href="/movies">Filmy</a>
-  <a class="inline-block text-white text-2xl" href="/series">Seriale</a>
-  <a class="inline-block text-white text-2xl" href="/short-films">Filmy krótkometrażowe</a>
-  {% if not logged_in %}
-    <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
-  {% else %}
-    <a class="inline-block text-white text-2xl" href="/user/logout">Wyloguj się</a>
-  {% endif %}
+  <div class=" flex max-w-[1280px] justify-between gap-[150px]">
+    <div class="flex gap-[20px]">
+      <a class="inline-block text-white text-2xl" href="/"><img class="inline-block h-[40px]" src="/resources/header/fresh-apples-logo.svg" alt="Fresh Apples logo"  ml-6">Fresh Apples</a>
+      <a class="inline-block text-white text-2xl" href="/movies">Filmy</a>
+      <a class="inline-block text-white text-2xl" href="/series">Seriale</a>
+    </div>
+    <div class="flex gap-[30px]">
+      {% if not logged_in %}
+        <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
+        <a class="inline-block text-white text-2xl" href="/user/login">Zarejestruj się</a>
+      {% else %}
+        <a class="inline-block text-white text-2xl" href="/user/logout">Wyloguj się</a>
+      {% endif %}
+    </div>
+  </div>
+
 
 </header>

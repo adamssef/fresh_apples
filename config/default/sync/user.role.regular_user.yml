@@ -1,0 +1,15 @@
+uuid: e369b2ed-a5db-4f74-99dd-2abb82f5edf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.review
+  module:
+    - node
+id: regular_user
+label: 'Regular user'
+weight: 5
+is_admin: null
+permissions:
+  - 'create review content'
+  - 'delete own review content'

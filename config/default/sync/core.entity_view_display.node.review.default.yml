@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.review.field_is_from_ciritc
     - field.field.node.review.field_review_content
     - field.field.node.review.field_review_rating
+    - field.field.node.review.field_show
     - node.type.review
   module:
     - user
@@ -39,6 +40,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_show:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }

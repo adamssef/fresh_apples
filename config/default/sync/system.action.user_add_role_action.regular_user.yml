@@ -1,0 +1,14 @@
+uuid: f5801dec-23c0-48f6-85e0-51def43fb003
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.regular_user
+  module:
+    - user
+id: user_add_role_action.regular_user
+label: 'Add the Regular user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: regular_user
