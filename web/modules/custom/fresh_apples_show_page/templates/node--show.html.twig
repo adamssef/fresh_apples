@@ -10,12 +10,11 @@
   </div>
 
 
-  <div
-    class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-12">
+  <div class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-12 w-full mx-6">
     <div
       class="flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
       <div
-        class="left h-full mx-6 md:mx-0 w-[inherit] lg:w-full py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
+        class="left h-full mx-0 w-[inherit] lg:w-full py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
         <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Ekipa filmowa<b
             class="pl-2">{{ show_data.show_title }}</b></span>
         <div
@@ -73,7 +72,7 @@
           </ul>
         </div>
       </div>
-      <div class="right w-[inherit] lg:w-full mx-6 lg:mx-0">
+      <div class="right w-[inherit] lg:w-full mx-0">
         {% if show_data.cover_image_url %}
           <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}"
                alt="Show image">
@@ -86,31 +85,31 @@
 
   </div>
   {% if show_data.already_reviewed == false %}
-    <div>
+    <div class="flex justify-center w-full">
       <div
         class="w-full flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
         <div
-          class="left mx-6 md:mx-0 flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
+          class="left mx-6 lg:mx-0 flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
           <div class="font-semibold text-[30px] text-white flex-col mb-4">Oceń ten
             film!
           </div>
           {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewForm') }}
         </div>
-        <div class="right w-[inherit] lg:w-full mx-6"></div>
+        <div class="right w-[inherit] lg:w-full mx-6 lg:mx-0"></div>
     </div>
     </div>
   {% else %}
     <div
       class="w-full items-center flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
       <div
-        class="mx-6 lg:mx-0 left w-[inherit] lg:w-full flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
+        class="mx-0 left w-[inherit] lg:w-full flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
         <div class="font-semibold text-[30px] text-white flex-col mb-4">Ten film
           oceniono na <span
             class="text-[#ff0000]">{{ show_data.prev_rating }}</span>/10
         </div>
         {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewFormUpdateOnly') }}
       </div>
-      <div class="right w-[inherit] lg:w-full mx-6"></div>
+      <div class="right w-[inherit] lg:w-full mx-6 lg:mx-0"></div>
     </div>
     </div>
   {% endif %}
