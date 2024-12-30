@@ -1,11 +1,11 @@
 <header class="flex justify-center items-center gap-[30px] fixed top-0 left-0 w-full h-[65px] bg-[#1a1a1a] z-[100]">
-  <div class=" flex max-w-[1280px] justify-between gap-[150px]">
-    <div class="flex gap-[20px]">
+  <div class=" flex max-w-[1280px] justify-between gap-[150px] items-center">
+    <div class="flex gap-[20px] items-center">
       <a class="inline-block text-white text-2xl" href="/"><img class="inline-block h-[40px]" src="/resources/header/fresh-apples-logo.svg" alt="Fresh Apples logo"  ml-6">Fresh Apples</a>
       <a class="inline-block text-white text-2xl" href="/movies">Filmy</a>
       <a class="inline-block text-white text-2xl" href="/series">Seriale</a>
     </div>
-    <div class="flex gap-[30px]">
+    <div class="flex gap-[30px] items-center">
       {% if not logged_in %}
         <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
         <a class="inline-block text-white text-2xl" href="/user/login">Zarejestruj się</a>

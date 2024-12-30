@@ -17,6 +17,7 @@
     "require": {
         "ext-mbstring": "*",
         "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.5",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
@@ -48,6 +49,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/core": {
+                "Array flip issue": "https://git.drupalcode.org/issue/poll-3361868/-/tree/3361868-warning-arrayflip-can"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
