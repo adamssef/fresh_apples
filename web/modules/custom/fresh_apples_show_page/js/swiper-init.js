@@ -10,8 +10,8 @@
           // resistance: true,
           // resistanceRatio: 0,
           // freeMode: false,
-          centeredSlides: false,
-          loop: false,
+          // centeredSlides: false,
+          // loop: false,
           slidePerGroup: 1,
           navigation: {
             nextEl: ".swiper-button-next",
@@ -23,20 +23,24 @@
             dynamicBullets: true,
           },
           spaceBetween: 16,
-          breakpoints: {
-            840: {
-              slidesPerView: 1,
-              sildesPerGroup: 1,
-              centeredSlides: true,
-              loop: false
-            },
-            1200: {
-              slidesPerView: 3,
-              sildesPerGroup: 4,
-              centeredSlides: true,
-              loop: true
-            }
-          }
+          slidesPerView: 3,
+          sildesPerGroup: 4,
+          centeredSlides: true,
+          loop: true
+          // breakpoints: {
+          //   840: {
+          //     slidesPerView: 1,
+          //     sildesPerGroup: 1,
+          //     centeredSlides: true,
+          //     loop: false
+          //   },
+          //   1200: {
+          //     slidesPerView: 3,
+          //     sildesPerGroup: 4,
+          //     centeredSlides: true,
+          //     loop: true
+          //   }
+          // }
         });
       });
     }

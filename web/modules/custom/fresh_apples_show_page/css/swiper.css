@@ -22,11 +22,11 @@
 
 @media screen and (min-width: 1024px) {
   .left {
-    width: 50%;
+    width: 50% !important;
   }
 
   .right {
-    width: 50%;
+    width: 50% !important;
   }
 }
 

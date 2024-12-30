@@ -1,34 +1,47 @@
 <div class="flex justify-center flex-col items-center">
-  <div class=" w-full m-auto max-w-[1280px] bg-[#1A1A1A] mt-[80px] p-4 mb-6 rounded-[16px] border border-solid border-white">
-    <div class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
-    <div class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
+  <div
+    class=" w-full m-auto max-w-[1280px] bg-[#1A1A1A] mt-[80px] p-4 mb-6 rounded-[16px] border border-solid border-white">
+    <div
+      class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
+    <div
+      class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
       {{ show_data.description|raw }}
     </div>
   </div>
 
 
-  <div class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-12">
-    <div class="flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
-      <div class="left py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
-        <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Ekipa filmowa<b class="pl-2">{{ show_data.show_title }}</b></span>
-        <div class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
+  <div
+    class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-12">
+    <div
+      class="flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
+      <div
+        class="left h-full mx-6 md:mx-0 w-[inherit] lg:w-full py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
+        <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Ekipa filmowa<b
+            class="pl-2">{{ show_data.show_title }}</b></span>
+        <div
+          class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
           <div class="swiper-wrapper flex">
             {% for participation in show_data.participation_paragraphs %}
               <div
-                class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] h-[220px] gap-[20px] flex flex-col justify-start">
+                class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] gap-[20px] flex flex-col justify-start">
                 {% if participation.persona_image_url %}
-                  <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('{{ participation.persona_image_url }}');"></div>
+                  <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]"
+                       style="background-image: url('{{ participation.persona_image_url }}');"></div>
                 {% else %}
                   {% if participation.role != 'Actor' %}
-                      <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('/resources/show/missing_crew_member.webp');"></div>
+                    <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]"
+                         style="background-image: url('/resources/show/missing_crew_member.webp');"></div>
                   {% else %}
-                      <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('/resources/show/missing_cast_member.webp');"></div>
+                    <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]"
+                         style="background-image: url('/resources/show/missing_cast_member.webp');"></div>
                   {% endif %}
                 {% endif %}
-                <div class="font-semibold">{{ participation.persona_full_name }}</div>
+                <div
+                  class="font-semibold">{{ participation.persona_full_name }}</div>
                 <div>{{ participation.role }}</div>
                 {% if participation.role == 'Actor' %}
-                  <div>Jako: <span>{{ participation.character_name }}</span></div>
+                  <div>Jako: <span>{{ participation.character_name }}</span>
+                  </div>
                 {% endif %}
               </div>
             {% endfor %}
@@ -38,9 +51,13 @@
           <div class="swiper-pagination"></div>
         </div>
         <div class="p-4 rounded-[24px] border border-solid border-white mt-4">
-          <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Informacje o<b class="pl-2">{{ show_data.show_title }}</b></span>
-          <div class="text-[#a0a3a1]">Rok wydania: {{ show_data.release_year }}</div>
-          <div class="text-[#a0a3a1]">Długość: {{ show_data.length_in_minutes }} minut</div>
+          <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Informacje o<b
+              class="pl-2">{{ show_data.show_title }}</b></span>
+          <div class="text-[#a0a3a1]">Rok
+            wydania: {{ show_data.release_year }}</div>
+          <div class="text-[#a0a3a1]">Długość: {{ show_data.length_in_minutes }}
+            minut
+          </div>
 
           <div class="text-[#a0a3a1]">Gatunek:</div>
           <ul>
@@ -56,21 +73,46 @@
           </ul>
         </div>
       </div>
-      <div class="right">
+      <div class="right w-[inherit] lg:w-full mx-6 lg:mx-0">
         {% if show_data.cover_image_url %}
-          <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}" alt="Show image">
+          <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}"
+               alt="Show image">
         {% else %}
-          <img class="rounded-[24px]" src="/resources/show/cover_placeholder.webp" alt="Show image">
+          <img class="rounded-[24px]"
+               src="/resources/show/cover_placeholder.webp" alt="Show image">
         {% endif %}
       </div>
     </div>
 
   </div>
-  <div class="max-w-[1280px] w-full">
-    <div class="left flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
-      <div class="font-semibold text-[30px] text-white flex-col mb-4">Oceń ten film!</div>
-      {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewForm') }}
+  {% if show_data.already_reviewed == false %}
+    <div>
+      <div
+        class="w-full flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
+        <div
+          class="left mx-6 md:mx-0 flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
+          <div class="font-semibold text-[30px] text-white flex-col mb-4">Oceń ten
+            film!
+          </div>
+          {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewForm') }}
+        </div>
+        <div class="right w-[inherit] lg:w-full mx-6"></div>
     </div>
-    <div class="right"></div>
-
+    </div>
+  {% else %}
+    <div
+      class="w-full items-center flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
+      <div
+        class="mx-6 lg:mx-0 left w-[inherit] lg:w-full flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
+        <div class="font-semibold text-[30px] text-white flex-col mb-4">Ten film
+          oceniono na <span
+            class="text-[#ff0000]">{{ show_data.prev_rating }}</span>/10
+        </div>
+        {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewFormUpdateOnly') }}
+      </div>
+      <div class="right w-[inherit] lg:w-full mx-6"></div>
+    </div>
+    </div>
+  {% endif %}
 </div>
+<div></div>
