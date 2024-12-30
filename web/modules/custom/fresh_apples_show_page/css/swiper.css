@@ -22,23 +22,23 @@
 
 @media screen and (min-width: 1024px) {
   .left {
-    width: 45%;
+    width: 50%;
   }
 
   .right {
-    width: 45%;
+    width: 50%;
   }
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 380px;
-  width: auto !important;
+  width: 250px !important;
 }
 
 .swiper-pagination-bullet:not(:active) {

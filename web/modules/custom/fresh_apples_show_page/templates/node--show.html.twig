@@ -1,5 +1,5 @@
-<div class="flex justify-center flex-col">
-  <div class=" m-auto max-w-[1280px] bg-[#1A1A1A] mt-[80px] p-4 mb-6 rounded-[16px]">
+<div class="flex justify-center flex-col items-center">
+  <div class=" w-full m-auto max-w-[1280px] bg-[#1A1A1A] mt-[80px] p-4 mb-6 rounded-[16px] border border-solid border-white">
     <div class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
     <div class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
       {{ show_data.description|raw }}
@@ -7,18 +7,17 @@
   </div>
 
 
-  <div class="m-auto bottom-container flex gap-[20px] flex-col-reverse md:flex-row pb-12">
+  <div class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-12">
     <div class="flex justify-center overflow-hidden flex-col lg:flex-row max-w-[1280px] gap-[24px]">
-      <div class="left y-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
+      <div class="left py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6">
         <span class="pl-4 text-[#a0a3a1] pt-6 flex justify-center">Ekipa filmowa<b class="pl-2">{{ show_data.show_title }}</b></span>
         <div class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper flex">
             {% for participation in show_data.participation_paragraphs %}
               <div
-                class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] h-[220px] gap-[20px] flex flex-col">
+                class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] h-[220px] gap-[20px] flex flex-col justify-start">
                 {% if participation.persona_image_url %}
-                  <img class="rounded-[8px]" src="{{ participation.persona_image_url }}"
-                     alt="Participator's image">
+                  <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('{{ participation.persona_image_url }}');"></div>
                 {% endif %}
                 <div class="font-semibold">{{ participation.persona_full_name }}</div>
                 <div>{{ participation.role }}</div>
@@ -57,8 +56,11 @@
     </div>
 
   </div>
-
-  {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewForm') }}
-
+  <div class="max-w-[1280px] w-full">
+    <div class="left flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
+      <div class="font-semibold text-[30px] text-white flex-col mb-4">Oceń ten film!</div>
+      {{ drupal_form('Drupal\\fresh_apples_reviews\\Form\\MovieReviewForm') }}
+    </div>
+    <div class="right"></div>
 
 </div>

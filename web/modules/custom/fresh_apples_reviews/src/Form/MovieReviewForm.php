@@ -21,7 +21,7 @@ class MovieReviewForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $movie_id = NULL) {
     $form['rating'] = [
       '#type' => 'number',
-      '#title' => $this->t('Rating (1-10)'),
+      '#title' => $this->t('Twoja ocena (1-10)'),
       '#min' => 1,
       '#max' => 10,
       '#required' => TRUE,
@@ -34,19 +34,10 @@ class MovieReviewForm extends FormBase {
     ];
 
     $user = \Drupal::currentUser();
-    $roles = $user->getRoles();
-
-    if (in_array('reviewer', $roles)) {
-      $form['is_critics_review'] = [
-        '#type' => 'checkbox',
-        '#title' => $this->t('Czy to recenzja krytyka?'),
-        '#required' => FALSE,
-      ];
-    }
 
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Oceń to!'),
+      '#value' => $this->t('Wyślij'),
     ];
 
     return $form;
@@ -56,17 +47,18 @@ class MovieReviewForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $movie_id = $form_state->getValue('movie_id');
+    $this_page_node = \Drupal::routeMatch()->getParameter('node');
+    $movie_id = $this_page_node->id();
     $review = $form_state->getValue('review');
     $rating = $form_state->getValue('rating');
 
     // Create a new "Review" node or save to a custom table
     $node = Node::create([
       'type' => 'review',
-      'title' => $this->t('Review for Movie @id', ['@id' => $movie_id]),
+      'title' => $this->t('Review for Movie @title', ['@title' => $$this_page_node->getTitle()]),
       'field_movie' => $movie_id, // Reference the movie
-      'field_review' => $review,
-      'field_rating' => $rating,
+      'field_review_content' => $review,
+      'field_review_rating' => $rating,
     ]);
     $node->save();
 

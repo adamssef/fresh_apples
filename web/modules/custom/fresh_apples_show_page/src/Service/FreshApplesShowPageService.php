@@ -96,13 +96,29 @@ class FreshApplesShowPageService {
       $persona = $paragraph->get('field_persona')->referencedEntities()[0];
       $persona_full_name = $persona->getTitle();
       $persona_image_id = $persona->get('field_persona_image')->target_id;
-      $persona_image_url = $this->mediaService->getStyledImageUrl($persona_image_id, 'thumbnail');
+      $persona_image_url = $this->mediaService->getStyledImageUrl($persona_image_id, 'medium');
       $participation_paragraphs_data[] = [
         'character_name' => $paragraph->get('field_character_name')->value,
         'role' => $paragraph->get('field_role')->referencedEntities()[0]->getName(),
         'persona_full_name' => $persona_full_name,
         'persona_image_url' => $persona_image_url,
       ];
+      $user = \Drupal::currentUser();
+      $is_user_authenticated = $user->isAuthenticated();
+
+      if (!$is_user_authenticated) {
+        $already_reviewed = FALSE;
+      }
+      else {
+        $user_id = $user->id();
+        $review_query = \Drupal::entityQuery('node')
+          ->condition('type', 'review')
+          ->condition('field_show', $node->id())
+          ->accessCheck(FALSE)
+          ->condition('uid', $user_id);
+        $review_query_result = $review_query->execute();
+        $already_reviewed = !empty($review_query_result);
+      }
     }
 
     return [
@@ -115,6 +131,7 @@ class FreshApplesShowPageService {
       'show_type' => $show_type,
       'available_languages' => $available_languages,
       'participation_paragraphs' => $participation_paragraphs_data,
+      'already_reviewed' => $already_reviewed,
     ];
   }
 

@@ -1,0 +1,11 @@
+.movie-review-form {
+  background-color: #1a1a1a;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .movie-review-form {
+    max-width: 100%;
+  }
+}
