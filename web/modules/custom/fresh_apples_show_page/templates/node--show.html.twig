@@ -18,6 +18,12 @@
                 class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] h-[220px] gap-[20px] flex flex-col justify-start">
                 {% if participation.persona_image_url %}
                   <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('{{ participation.persona_image_url }}');"></div>
+                {% else %}
+                  {% if participation.role != 'Actor' %}
+                      <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('/resources/show/missing_crew_member.webp');"></div>
+                  {% else %}
+                      <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]" style="background-image: url('/resources/show/missing_cast_member.webp');"></div>
+                  {% endif %}
                 {% endif %}
                 <div class="font-semibold">{{ participation.persona_full_name }}</div>
                 <div>{{ participation.role }}</div>
@@ -51,7 +57,11 @@
         </div>
       </div>
       <div class="right">
-        <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}" alt="Show image">
+        {% if show_data.cover_image_url %}
+          <img class="rounded-[24px]" src="{{ show_data.cover_image_url }}" alt="Show image">
+        {% else %}
+          <img class="rounded-[24px]" src="/resources/show/cover_placeholder.webp" alt="Show image">
+        {% endif %}
       </div>
     </div>
 
