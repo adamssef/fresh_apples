@@ -6,8 +6,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\fresh_apples_show_page\Service\MediaService\MediaServiceInterface;
 use Drupal\fresh_apples_show_page\Service\TaxonomyService\TaxonomyServiceInterface;
-use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\user\Entity\User;
 
 class FreshApplesShowPageService {
 
@@ -129,10 +129,71 @@ class FreshApplesShowPageService {
       $query_result = $query->execute();
       $already_reviewed = !empty($query_result);
 
-      $review_node = $this->entityTypeManager->getStorage('node')
-        ->load(reset($query_result));
-      $rating = $this->getPrevRating($review_node);
+      if ($query_result) {
+        $review_node = $this
+          ->entityTypeManager
+          ->getStorage('node')
+          ?->load(reset($query_result));
+
+        if ($review_node) {
+          $rating = $this->getPrevRating($review_node);
+          $already_reviewed = TRUE;
+        }
+        else {
+          $rating = NULL;
+          $already_reviewed = FALSE;
+        }
+      }
     }
+
+    $all_this_movie_reviews_from_critics = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
+      ->condition('type', 'review')
+      ->condition('field_show', $node->id())
+      ->condition('field_is_from_ciritc', 1)
+      ->accessCheck(FALSE)
+      ->execute();
+
+    $all_this_movie_reviews_from_regular_users = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
+      ->condition('type', 'review')
+      ->condition('field_show', $node->id())
+      ->condition('field_is_from_ciritc', 0)
+      ->accessCheck(FALSE)
+      ->execute();
+
+    $review_data_critics = [];
+    $review_data_regulars = [];
+
+    foreach ($all_this_movie_reviews_from_critics as $review_id) {
+      $review_node = $this->entityTypeManager->getStorage('node')->load($review_id);
+      $uid = $review_node->get('uid')->referencedEntities()[0]->id();
+      $account = User::load($uid);
+      $author = $account->getAccountName();
+      $review_data_critics[] = [
+        'title' => $review_node->getTitle(),
+        'rating' => $review_node->get('field_review_rating')->value,
+        'review' => $review_node->get('field_review_content')->value,
+        'author' => $author,
+        'date' => date('Y-m-d', $review_node->get('changed')->value),
+        'is_from_critics' => $review_node->get('field_is_from_ciritc')->value,
+      ];
+    }
+
+    foreach ($all_this_movie_reviews_from_regular_users as $review_id) {
+      $review_node = $this->entityTypeManager->getStorage('node')->load($review_id);
+      $uid = $review_node->get('uid')->referencedEntities()[0]->id();
+      $account = User::load($uid);
+      $author = $account->getAccountName();
+      $review_data_regulars[] = [
+        'rating' => $review_node->get('field_review_rating')->value,
+        'review' => $review_node->get('field_review_content')->value,
+        'author' => $author,
+        'date' => date('Y-m-d', $review_node->get('changed')->value),
+        'is_from_critics' => $review_node->get('field_is_from_ciritc')->value,
+      ];
+    }
+
     return [
       'show_title' => $show_title,
       'description' => $description,
@@ -145,6 +206,8 @@ class FreshApplesShowPageService {
       'participation_paragraphs' => $participation_paragraphs_data,
       'already_reviewed' => $already_reviewed,
       'prev_rating' => $rating ?? NULL,
+      'reviews_critics' => $review_data_critics,
+      'reviews_regulars' => $review_data_regulars,
     ];
   }
 
@@ -170,7 +233,7 @@ class FreshApplesShowPageService {
     }
   }
 
-  public function getPrevRating(EntityInterface|NULL $node): ?int {
+  public function getPrevRating(EntityInterface|null $node): ?int {
     if ($node === NULL) {
       return NULL;
     }
@@ -205,7 +268,6 @@ class FreshApplesShowPageService {
         return $rating;
       }
     }
-
   }
 
 }

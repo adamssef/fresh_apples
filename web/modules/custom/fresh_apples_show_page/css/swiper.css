@@ -6,6 +6,10 @@
   max-width: 100vw;
 }
 
+.upper-container {
+  width: calc(100vw - 60px) !important;
+}
+
 .desc-container {
   max-width: 100vw;
 }
@@ -23,6 +27,10 @@
 @media screen and (min-width: 1024px) {
   .left {
     width: 50% !important;
+  }
+
+  .left.left-carousel {
+    width: 49% !important;
   }
 
   .right {

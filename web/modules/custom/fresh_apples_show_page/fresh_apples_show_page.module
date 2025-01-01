@@ -58,6 +58,17 @@ function fresh_apples_show_page_preprocess_node(&$variables) {
   }
 
   $content_type = $node->bundle();
+  $user_roles = \Drupal::currentUser()->getRoles();
+
+  if (in_array('reviewer', $user_roles)) {
+    $variables['user_role'] = 'reviewer';
+  }
+  else if (in_array('authenticated', $user_roles)) {
+    $variables['user_role'] = 'regular';
+  }
+  else {
+    $variables['user_role'] = 'unauthenticated';
+  }
 
   if ($content_type === 'show') {
     $variables['show_data'] = \Drupal::service('fresh_apples_show_page.service')->prepareShowData($node);

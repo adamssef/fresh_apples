@@ -64,14 +64,18 @@ class MovieReviewForm extends FormBase {
           $form['rating']['#default_value'] = $prev_rating;
         }
       }
-      else {
-        $form['review'] = [
-          '#type' => 'textarea',
-          '#title' => $this->t('Recenzja (opcjonalnie)'),
-          '#required' => FALSE,
-        ];
-      }
-
+    }
+    else {
+      $form['review_title'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Tytuł'),
+        '#required' => FALSE,
+      ];
+      $form['review'] = [
+        '#type' => 'textarea',
+        '#title' => $this->t('Recenzja (opcjonalnie)'),
+        '#required' => FALSE,
+      ];
     }
 
     $form['submit'] = [
@@ -90,14 +94,18 @@ class MovieReviewForm extends FormBase {
     $movie_id = $this_page_node->id();
     $review = $form_state->getValue('review');
     $rating = $form_state->getValue('rating');
+    $title = $form_state->getValue('review_title');
+    $current_user_roles = \Drupal::currentUser()->getRoles();
+    $is_reviewer = in_array('reviewer', $current_user_roles);
 
     // Create a new "Review" node or save to a custom table
     $node = Node::create([
       'type' => 'review',
-      'title' => $this->t('Review for Movie @title', ['@title' => $this_page_node->getTitle()]),
+      'title' => $title ?? $this->t('Review for Movie @title', ['@title' => $this_page_node->getTitle()]),
       'field_show' => $movie_id, // Reference the movie
       'field_review_content' => $review,
       'field_review_rating' => $rating,
+      'field_is_from_ciritc' => $is_reviewer,
     ]);
     $node->save();
 
