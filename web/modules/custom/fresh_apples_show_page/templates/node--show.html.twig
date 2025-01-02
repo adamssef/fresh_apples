@@ -1,4 +1,4 @@
-<div class="flex justify-center flex-col items-center mt-10">
+<div class="flex justify-center flex-col items-center mt-10 mb-6">
   {% if show_data.already_reviewed == false %}
       <div class="flex justify-center w-full mb-6">
         <div class="upper-container w-full flex justify-center overflow-hidden flex-col-reverse lg:flex-row-reverse max-w-[1280px] gap-[24px]">
@@ -15,16 +15,17 @@
           <div class="h-full right w-auto lg:w-full mx-0">
             <div class="w-full m-auto mt-0 h-full max-w-[1280px] bg-[#1A1A1A] p-4 mb-6 rounded-[16px] border border-solid border-white">
               <div class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
-              <div
-                class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
+              <div class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
                 {{ show_data.description|raw }}
               </div>
+              <div class="text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">Ocena krytyków: {{ critics_avg_rating }}</div>
+              <div class="text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">Ocena użytkowników: {{ regulars_avg_rating }}</div>
             </div>
           </div>
       </div>
       </div>
     {% else %}
-      <div class="w-full items-center upper-container flex justify-center overflow-hidden flex-col lg:flex-row-reverse max-w-[1280px] gap-[24px]">
+      <div class="w-full items-center upper-container flex justify-center overflow-hidden flex-col-reverse lg:flex-row-reverse max-w-[1280px] gap-[24px]">
         <div id="rating-form" class="mx-0 left w-[inherit] lg:w-full flex justify-center py-6 rounded-[24px] border border-solid border-white h-fit p-4 lg:p-6 flex-col items-center">
           <div class="font-semibold text-[30px] text-white flex-col mb-4">Ten film
             oceniono na <span
@@ -35,12 +36,13 @@
         <div class="h-full right w-[inherit] lg:w-full mx-6 lg:mx-0">
             <div
               class="w-full m-auto h-full mt-0 max-w-[1280px] bg-[#1A1A1A] p-4 mb-6 rounded-[16px] border border-solid border-white">
-              <div
-                class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
+              <div class="font-semibold text-[30px] text-white">{{ show_data.show_title }}</div>
               <div
                 class="desc-container text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">
                 {{ show_data.description|raw }}
               </div>
+              <div class="text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">Ocena krytyków: {{ critics_avg_rating }}</div>
+              <div class="text-white bg-[#1a1a1a] mt-6 rounded-[16px] max-w-[1280px] mb-8">Ocena użytkowników: {{ regulars_avg_rating }}</div>
             </div>
         </div>
       </div>
@@ -113,7 +115,7 @@
         {% if show_data.cover_image_url %}
           <div class="w-full">
             <img class="w-full h-full object-cover rounded-[24px]"
-                 src="https://cms-fresh-apples.lndo.site/sites/default/files/styles/wide/public/shows/posters/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg.webp?itok=6O-RnAAs"
+                 src="{{  show_data.cover_image_url }}"
                  alt="Show image">
           </div>
         {% else %}
@@ -124,19 +126,19 @@
     </div>
 
   </div>
-  <div class="flex max-w-[1280px] p-4 rounded-[24px] border border-solid border-white w-full">
+  <div class="flex max-w-[1280px] p-4 rounded-[24px] border border-solid border-white w-full gap-4">
     <div class="w-1/2">
       <div class="text-center font-semibold text-[16px] md:text-[24px] lg:text-[30px] text-white pb-4 md:pb-8">Opinie użytkowników</div>
       {% if show_data.reviews_regulars %}
        {% for review in show_data.reviews_regulars %}
-         <div class="bg-white rounded-[16px] p-2 md:p-4 lg:p-6">
+         <div class="bg-white rounded-[16px] p-2 md:p-4 lg:p-6 mb-4">
            <div class="flex justify-between mb-2 md:mb-4 lg:mb-6">
              <span class="font-semibold">{{ review.date }}</span><span class="font-semibold">{{ review.author }}</span>
            </div>
            {{ review.title }}
            <div class="text-center my-3 md:my-4 lg:my-5">Ocena: <span class="font-semibold text-[#ff0000]">{{ review.rating }}</span>/10</div>
-           <div>  {{ review.review }}</div>
-         </div>>
+           <div>{{ review.review }}</div>
+         </div>
         {% endfor %}
       {% else %}
        {% if user_role == 'authenticated' %}
@@ -148,7 +150,7 @@
       <div class="text-center font-semibold text-[16px] md:text-[24px] lg:text-[30px] text-white pb-4 md:pb-8">Opinie krytyków</div>
       {% if show_data.reviews_critics %}
         {% for review in show_data.reviews_critics %}
-          <div class="bg-white rounded-[16px] p-2 md:p-4 lg:p-6">
+          <div class="bg-white rounded-[16px] p-2 md:p-4 lg:p-6 mb-4">
             <div class="flex justify-between mb-2 md:mb-4 lg:mb-6">
               <span class="font-semibold">{{ review.date }}</span><span class="font-semibold">{{ review.author }}</span>
             </div>
@@ -164,5 +166,3 @@
       {% endif %}
     </div>
 </div>
-
-{{ dump() }}

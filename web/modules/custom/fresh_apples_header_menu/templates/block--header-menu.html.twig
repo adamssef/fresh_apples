@@ -1,16 +1,17 @@
 <header class="flex justify-center items-center gap-[30px] fixed top-0 left-0 w-full h-[65px] bg-[#1a1a1a] z-[100]">
-  <div class=" flex max-w-[1280px] justify-between gap-[150px] items-center">
+  <div class=" flex max-w-[1280px] justify-between gap-[150px] items-center w-full px-4 lg:px-0">
     <div class="flex gap-[20px] items-center">
-      <a class="inline-block text-white text-2xl" href="/"><img class="inline-block h-[40px]" src="/resources/header/fresh-apples-logo.svg" alt="Fresh Apples logo"  ml-6">Fresh Apples</a>
+      <a class="inline-block text-white text-2xl" href="/"><img class="inline-block h-[40px] min-w-[40px] min-h-[40px]" src="/resources/header/fresh-apples-logo.svg" alt="Fresh Apples logo"><span class="hidden md:inline-block">Fresh Apples</span></a>
       <a class="inline-block text-white text-2xl" href="/movies">Filmy</a>
       <a class="inline-block text-white text-2xl" href="/series">Seriale</a>
     </div>
     <div class="flex gap-[30px] items-center">
       {% if not logged_in %}
         <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
-        <a class="inline-block text-white text-2xl" href="/user/login">Zarejestruj się</a>
+        <a class="inline-block text-white text-2xl" href="/user/register">Zarejestruj się</a>
       {% else %}
-        <a class="inline-block text-white text-2xl" href="/user/logout">Wyloguj się</a>
+{#        <a class="inline-block text-white text-2xl" href="/user/logout">Wyloguj się</a>#}
+        <a class="inline-block text-white text-2xl max-w-13" href="/user/logout"><img class="w-[50px]" src="/resources/header/logout.svg" ></a>
       {% endif %}
     </div>
   </div>

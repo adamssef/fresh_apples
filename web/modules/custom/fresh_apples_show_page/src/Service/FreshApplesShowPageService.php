@@ -270,4 +270,59 @@ class FreshApplesShowPageService {
     }
   }
 
+  public function getAverageRatingFromCritics() {
+    $this_movie_node = \Drupal::routeMatch()->getParameter('node');
+
+    $query = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
+      ->condition('field_show', $this_movie_node->id())
+      ->condition('type', 'review')
+      ->condition('field_is_from_ciritc', 1)
+      ->accessCheck(FALSE);
+
+    $query_result = $query->execute();
+    $all_ratings = [];
+
+    foreach ($query_result as $review_id) {
+      $review_node = $this->entityTypeManager->getStorage('node')->load($review_id);
+      $rating = $review_node->get('field_review_rating')->value;
+      $all_ratings[] = $rating;
+    }
+
+    if (count($all_ratings) === 0) {
+      return 'brak ocen dla tego filmu';
+    }
+
+    $average_rating = array_sum($all_ratings) / count($all_ratings);
+
+    return $average_rating;
+  }
+
+  public function getAverageRatingFromRegularUsers() {
+    $this_movie_node = \Drupal::routeMatch()->getParameter('node');
+    $query = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
+      ->condition('field_show', $this_movie_node->id())
+      ->condition('type', 'review')
+      ->condition('field_is_from_ciritc', 0)
+      ->accessCheck(FALSE);
+
+    $query_result = $query->execute();
+    $all_ratings = [];
+
+    foreach ($query_result as $review_id) {
+      $review_node = $this->entityTypeManager->getStorage('node')->load($review_id);
+      $rating = $review_node->get('field_review_rating')->value;
+      $all_ratings[] = $rating;
+    }
+
+    if (count($all_ratings) === 0) {
+      return 'brak ocen dla tego filmu';
+    }
+
+    $average_rating = array_sum($all_ratings) / count($all_ratings);
+
+    return $average_rating;
+  }
+
 }
