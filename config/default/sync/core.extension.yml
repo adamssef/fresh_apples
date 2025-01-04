@@ -15,6 +15,7 @@ module:
   config_translation: 0
   contact: 0
   contextual: 0
+  date_filter: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -44,6 +45,7 @@ module:
   menu_ui: 0
   migrate: 0
   migrate_source_csv: 0
+  movies_page: 0
   mysql: 0
   node: 0
   options: 0

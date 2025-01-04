@@ -55,6 +55,10 @@ class MovieReviewForm extends FormBase {
     $currentUserId = \Drupal::currentUser()->id();
     $this_page_node = \Drupal::routeMatch()->getParameter('node');
 
+    if (!$this_page_node) {
+      return;
+    }
+
     if ($this->fresh_apples_show_page_service->getTheReviewByUidAndShowId($currentUserId, $this_page_node->id())) {
       $prev_rating = $this->fresh_apples_show_page_service->getPrevRating($this_page_node);
 

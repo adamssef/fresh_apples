@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for movies_page module.
+ */
+
+
+function movies_page_preprocess_page(&$variables) {
+  $path_alias = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($path_alias);
+
+  if ($path_alias === '/movies') {
+    $variables['#attached']['library'][] = 'movies_page/movies_page';
+  }
+}

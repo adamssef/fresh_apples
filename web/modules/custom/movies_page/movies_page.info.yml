@@ -1,0 +1,5 @@
+name: 'movies_page'
+type: module
+description: 'Implementation of a movies page.'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

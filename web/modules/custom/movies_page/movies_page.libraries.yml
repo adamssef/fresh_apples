@@ -1,0 +1,4 @@
+movies_page:
+  css:
+    theme:
+      css/movies.css: {}

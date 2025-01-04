@@ -1,0 +1,93 @@
+.views-view-responsive-grid {
+  width: max-content;
+}
+
+.contextual-region.view.view-moviews.view-id-moviews.view-display-id-page_1 {
+  display: block !important;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.fieldset {
+  border: none !important;
+}
+
+.views-view-responsive-grid__item, .views-view-responsive-grid__item-inner a {
+  display: flex;
+  justify-content: center;
+}
+
+.view-content {
+  max-width: 12800px;
+}
+
+.rewritten-image {
+  width: 147px;
+  height: 220px;
+}
+
+.views-view-responsive-grid {
+  width: auto;
+  gap: 20px;
+}
+
+span.field-content a:is(:nth-of-type(2)) {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+}
+
+.views-exposed-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.field-content img {
+  border-radius: 8px;
+}
+
+.views-exposed-form inpuyest {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+span.fieldset__label {
+  padding: 0;
+  background-color: black;
+  border: none;
+  font-size: 14px;
+}
+
+.js-form-submit {
+  padding: 10px 20px !important;
+}
+
+legend {
+  background-color: transparent;
+}
+
+.views-exposed-form .fieldset__wrapper {
+  background-color: transparent;
+  padding: 0;
+  padding-block: 0 !important;
+  padding-inline: 0 !important;
+}
+
+.pager__item--active {
+  background-color: black !important;
+  border: solid;
+}
+
+.js-form-type-date {
+  margin: 0;
+  margin-block: 0 !important;
+}
+
+.pager.layout--content-medium {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
