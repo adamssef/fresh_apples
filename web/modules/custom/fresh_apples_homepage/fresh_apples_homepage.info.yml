@@ -1,0 +1,5 @@
+name: 'fresh_apples_homepage'
+type: module
+description: 'homepage'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

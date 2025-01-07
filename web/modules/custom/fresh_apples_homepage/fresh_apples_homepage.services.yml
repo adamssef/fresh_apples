@@ -1,0 +1,19 @@
+services:
+  fresh_apples_homepage.top_user_movies_service:
+    class: Drupal\fresh_apples_homepage\Service\TopUserMoviesService
+    arguments:
+      - '@entity_type.manager'
+      - '@path_alias.manager'
+      - '@fresh_apples_show_page.media_service'
+  fresh_apples_homepage.top_critic_movies_service:
+    class: Drupal\fresh_apples_homepage\Service\TopCriticMoviesService
+    arguments:
+      - '@entity_type.manager'
+      - '@path_alias.manager'
+      - '@fresh_apples_show_page.media_service'
+  fresh_apples_homepage.new_released_movies_service:
+    class: Drupal\fresh_apples_homepage\Service\NewReleasedMoviesService
+    arguments:
+      - '@entity_type.manager'
+      - '@path_alias.manager'
+      - '@fresh_apples_show_page.media_service'

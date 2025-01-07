@@ -1,0 +1,209 @@
+<div class="relative w-full h-screen">
+  <div class="absolute inset-0">
+    <img src="/resources/homepage/movies_background.png" alt="Background Image" class="w-full h-full object-cover">
+  </div>
+</div>
+
+<div class="text-white bg-black w-full" style="font-size: 40px; margin-bottom: 2%">
+  <div class="font-bold text-[32px] md:text-[48px] lg:text-[64px] drop-shadow-lg mb-4" style="text-align: center">
+    Discover the World of Cinema
+  </div>
+  <div class="font-bold text-[24px] md:text-[36px] lg:text-[48px] drop-shadow-lg" style="text-align: center;">
+    Reviews, Rankings, All in One Place!
+  </div>
+</div>
+
+<div class="text-gray-400 bg-black w-full py-8 px-4 md:px-16" style="font-size: 20px; margin-bottom: 7%">
+  <div style="width: 70%; margin: auto; text-align: center; line-height: 1.6;">
+    Fresh Apples is your ultimate destination for movie lovers. Dive into a comprehensive collection of reviews, explore detailed rankings, and find out what’s worth watching today. Whether you're looking for the latest blockbusters or hidden indie gems, we’ve got you covered. Join our community, share your opinions, and discover your next favorite film!
+  </div>
+</div>
+
+<div class="flex flex-wrap bg-black">
+  <div style="display: flex; flex-wrap: wrap; background-color: black; padding: 16px;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%; margin-bottom: 16px;">
+      {% for movie in new_released_movies[:5] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%;">
+      {% for movie in new_released_movies[5:10] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 py-8 px-4 md:px-8 bg-gray-900">
+    <div class="text-center text-white text-lg md:text-2xl lg:text-3xl font-bold mb-4" style="text-align: center; font-size: 25px; margin-bottom: 3%">
+      New released
+    </div>
+    <table class="w-full text-left text-white border-collapse" style="font-size: 20px">
+      <thead>
+      <tr class="border-b border-gray-600">
+        <th class="py-2 px-4" style="text-align: start">#</th>
+        <th class="py-2 px-4" style="text-align: start">Title</th>
+        <th class="py-2 px-4" style="text-align: start">User Rating</th>
+        <th class="py-2 px-4" style="text-align: start">Critic Rating</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for movie in new_released_movies %}
+        <tr class="border-b border-gray-600">
+          <td class="py-2 px-4">{{ loop.index }}</td>
+          <td class="py-2 px-4">
+            <a href="{{ movie.link }}" class="text-blue-400 hover:underline">{{ movie.title }}</a>
+          </td>
+          <td class="py-2 px-4">{{ movie.user_rating ?? 'N/A' }}</td>
+          <td class="py-2 px-4">{{ movie.critic_rating }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="flex flex-wrap bg-black">
+  <div style="display: flex; flex-wrap: wrap; background-color: black; padding: 16px;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%; margin-bottom: 16px;">
+      {% for movie in top_user_movies[:5] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%;">
+      {% for movie in top_user_movies[5:10] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 py-8 px-4 md:px-8 bg-gray-900">
+    <div class="text-center text-white text-lg md:text-2xl lg:text-3xl font-bold mb-4" style="text-align: center; font-size: 25px; margin-bottom: 3%">
+      Top Movies by users
+    </div>
+    <table class="w-full text-left text-white border-collapse" style="font-size: 20px">
+      <thead>
+      <tr class="border-b border-gray-600">
+        <th class="py-2 px-4" style="text-align: start">#</th>
+        <th class="py-2 px-4" style="text-align: start">Title</th>
+        <th class="py-2 px-4" style="text-align: start">User Rating</th>
+        <th class="py-2 px-4" style="text-align: start">Critic Rating</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for movie in top_user_movies %}
+        <tr class="border-b border-gray-600">
+          <td class="py-2 px-4">{{ loop.index }}</td>
+          <td class="py-2 px-4">
+            <a href="{{ movie.link }}" class="text-blue-400 hover:underline">{{ movie.title }}</a>
+          </td>
+          <td class="py-2 px-4">{{ movie.user_rating ?? 'N/A' }}</td>
+          <td class="py-2 px-4">{{ movie.critic_rating }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="flex flex-wrap bg-black">
+  <div style="display: flex; flex-wrap: wrap; background-color: black; padding: 16px;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%; margin-bottom: 16px;">
+      {% for movie in top_critic_movies[:5] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; width: 100%;">
+      {% for movie in top_critic_movies[5:10] %}
+        <div style="text-align: center; padding: 8px;">
+          {% if movie.image %}
+            <a href="{{ movie.link }}">
+              <img src="{{ movie.image }}" alt="{{ movie.title }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+            </a>
+          {% endif %}
+          <h3 style="font-size: 14px; font-weight: bold; color: white; margin-top: 8px;">
+            <a href="{{ movie.link }}" style="text-decoration: none; color: white;">{{ movie.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 py-8 px-4 md:px-8 bg-gray-900">
+    <div class="text-center text-white text-lg md:text-2xl lg:text-3xl font-bold mb-4" style="text-align: center; font-size: 25px; margin-bottom: 3%">
+      Top Movies by critics
+    </div>
+    <table class="w-full text-left text-white border-collapse" style="font-size: 20px">
+      <thead>
+      <tr class="border-b border-gray-600">
+        <th class="py-2 px-4" style="text-align: start">#</th>
+        <th class="py-2 px-4" style="text-align: start">Title</th>
+        <th class="py-2 px-4" style="text-align: start">User Rating</th>
+        <th class="py-2 px-4" style="text-align: start">Critic Rating</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for movie in top_critic_movies %}
+        <tr class="border-b border-gray-600">
+          <td class="py-2 px-4">{{ loop.index }}</td>
+          <td class="py-2 px-4">
+            <a href="{{ movie.link }}" class="text-blue-400 hover:underline">{{ movie.title }}</a>
+          </td>
+          <td class="py-2 px-4">{{ movie.user_rating ?? 'N/A' }}</td>
+          <td class="py-2 px-4">{{ movie.critic_rating }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
