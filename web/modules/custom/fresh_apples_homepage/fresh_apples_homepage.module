@@ -1,0 +1,24 @@
+<?php
+
+function fresh_apples_homepage_theme() {
+  return [
+    'node__4912' => [
+      'template' => 'node--4912',
+      'base hook' => 'node',
+    ],
+  ];
+}
+function fresh_apples_homepage_preprocess_node(&$variables) {
+  if ($variables['node']->id() == 4912) {
+    $top_user_movies_service = \Drupal::service('fresh_apples_homepage.top_user_movies_service');
+    $top_critic_movies_service = \Drupal::service('fresh_apples_homepage.top_critic_movies_service');
+    $new_released_movies_service = \Drupal::service('fresh_apples_homepage.new_released_movies_service');
+
+    $variables['top_user_movies'] = $top_user_movies_service->getTopUserMovies();
+    $variables['top_critic_movies'] = $top_critic_movies_service->getTopCriticMovies();
+    $variables['new_released_movies'] = $new_released_movies_service->getNewReleasedMovies();
+  }
+}
+
+
+
