@@ -48,7 +48,7 @@ span.field-content a:is(:nth-of-type(2)) {
   border-radius: 8px;
 }
 
-.views-exposed-form inpuyest {
+.views-exposed-form input {
   width: 100%;
   padding: 0;
   margin: 0;
