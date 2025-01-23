@@ -1,0 +1,29 @@
+uuid: 883efa50-e05c-4aa6-86e1-fb9e0df14f96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show
+    - node.type.show
+    - paragraphs.paragraphs_type.participation
+id: paragraph.participation.field_show
+field_name: field_show
+entity_type: paragraph
+bundle: participation
+label: Show
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      show: show
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

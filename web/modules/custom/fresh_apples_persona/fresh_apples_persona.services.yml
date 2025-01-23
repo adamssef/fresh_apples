@@ -1,0 +1,4 @@
+services:
+  fresh_apples_persona.service:
+    class: Drupal\fresh_apples_persona\Service\FreshApplesPersonaService
+    arguments: ['@entity_type.manager', '@fresh_apples_show_page.taxonomy_service', '@fresh_apples_show_page.media_service']

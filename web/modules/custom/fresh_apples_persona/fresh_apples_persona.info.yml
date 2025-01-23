@@ -1,0 +1,5 @@
+name: 'Fresh Apples Persona'
+type: module
+description: 'A module that implements persona page'
+package: Fresh Apples
+core_version_requirement: ^10 || ^11

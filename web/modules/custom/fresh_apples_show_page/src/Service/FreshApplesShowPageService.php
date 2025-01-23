@@ -100,13 +100,16 @@ class FreshApplesShowPageService {
       $persona = $paragraph->get('field_persona')->referencedEntities()[0];
       $persona_full_name = $persona->getTitle();
       $persona_image_id = $persona->get('field_persona_image')->target_id;
+      $persona_link = '/node/' . $persona->id();
       $persona_image_url = $this->mediaService->getStyledImageUrl($persona_image_id, 'medium');
+
       $participation_paragraphs_data[] = [
         'character_name' => $paragraph->get('field_character_name')->value,
         'role' => $paragraph->get('field_role')
           ->referencedEntities()[0]->getName(),
         'persona_full_name' => $persona_full_name,
         'persona_image_url' => $persona_image_url,
+        'persona_link' => $persona_link,
       ];
     }
 

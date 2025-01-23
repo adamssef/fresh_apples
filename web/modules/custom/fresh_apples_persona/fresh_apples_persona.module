@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Fresh Apples Persona module.
+ */
+
+function fresh_apples_persona_theme() {
+  return [
+    'node__persona' => [
+      'template' => 'node--persona',
+      'base hook' => 'node',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+}
+function fresh_apples_persona_preprocess_node(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node || $node->getType() !== 'persona') {
+    return;
+  }
+
+  $variables['data'] = \Drupal::service('fresh_apples_persona.service')->preparePersonaData($node);
+}
+
+function fresh_apples_persona_preprocess_page(&$variables) {
+  $current_node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($current_node === NULL || $current_node->getType() !== 'persona') {
+    return;
+  }
+
+  if ($current_node->getType() === 'persona') {
+    $variables['#attached']['library'][] = 'fresh_apples_persona/persona_page';
+    $variables['#attached']['library'][] = 'fresh_apples_persona/swiper';
+  }
+}
+
+

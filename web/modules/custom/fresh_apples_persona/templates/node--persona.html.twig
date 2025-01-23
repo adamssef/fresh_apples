@@ -1,0 +1,90 @@
+<div class="container mx-auto p-8 bg-white rounded-[16px]">
+  <!-- Profile Section -->
+  <div class="bg-white rounded-lg overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+      <!-- Profile Image -->
+      <div class="w-full flex justify-center">
+        <img
+          src="{{ data.image_url }}"
+          alt="Profile picture of {{ data.first_name }} {{ data.last_name }}"
+          class="w-40 h-40 object-cover rounded-full">
+      </div>
+
+      <!-- Profile Details -->
+      <div class="col-span-2">
+        <h1 class="text-xl font-bold mb-2">{{ data.first_name }} {% if data.middle_name %}{{ data.middle_name }} {% endif %}{{ data.last_name }}</h1>
+        <p class="text-gray-600">Date of Birth: <span class="font-medium">{{ data.birth_date }}</span></p>
+        <p class="text-gray-600">Place of Birth: <span class="font-medium">{{ data.place_of_birth }}</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Participations Section -->
+  <div class="bg-white mt-8">
+    {% if data.participations['Actor'] %}
+      <div class="mb-8">
+        <span class="font-semibold text-lg">Występuje jako aktor w:</span>
+        <div class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
+          <div class="swiper-wrapper flex gap-4">
+            {% for participation in data.participations['Actor'] %}
+              <a href="{{ participation.show_url_alias }}">
+                <div class="bg-[#1A1A1A] swiper-slide text-white mt-6 rounded-[16px] p-4 max-w-[250px] gap-[20px] flex flex-col justify-start">
+                  <div class="w-full h-1/2 bg-cover bg-top rounded-[8px]" style="background-image: url('{{ participation.show_url }}');"></div>
+                  <div class="font-semibold">{{ participation.show }}</div>
+                  <div>Jako: {{ participation.character }}</div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if data.participations['Director'] %}
+      <div class="mb-8">
+        <span class="font-semibold text-lg">Występuje jako reżyser w:</span>
+        <div class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
+          <div class="swiper-wrapper flex gap-4">
+            {% for participation in data.participations['Director'] %}
+              <a href="{{ participation.show_url_alias }}">
+                <div class="bg-[#1A1A1A] swiper-slide text-white mt-6 rounded-[16px] p-4 max-w-[250px] gap-[20px] flex flex-col justify-start">
+                  <div class="w-full h-1/2 bg-cover bg-top rounded-[8px]" style="background-image: url('{{ participation.show_url }}');"></div>
+                  <div class="font-semibold">{{ participation.show }}</div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if data.participations['Screenwriter'] %}
+      <div class="mb-8">
+        <span class="font-semibold text-lg">Występuje jako scenarzysta w:</span>
+        <div class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
+          <div class="swiper-wrapper flex gap-4">
+            {% for participation in data.participations['Screenwriter'] %}
+              <a href="{{ participation.show_url_alias }}">
+                <div class="bg-[#1A1A1A] swiper-slide text-white mt-6 rounded-[16px] p-4 max-w-[250px] gap-[20px] flex flex-col justify-start">
+                  <div class="w-full h-1/2 bg-cover bg-top rounded-[8px]" style="background-image: url('{{ participation.show_url }}');"></div>
+                  <div class="font-semibold">{{ participation.show }}</div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+

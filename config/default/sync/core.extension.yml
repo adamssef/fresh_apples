@@ -30,6 +30,7 @@ module:
   fresh_apples_content_import: 0
   fresh_apples_header_menu: 0
   fresh_apples_homepage: 0
+  fresh_apples_persona: 0
   fresh_apples_reviews: 0
   fresh_apples_show_page: 0
   help: 0

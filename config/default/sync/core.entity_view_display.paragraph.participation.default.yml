@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.participation.field_character_name
     - field.field.paragraph.participation.field_persona
     - field.field.paragraph.participation.field_role
+    - field.field.paragraph.participation.field_show
     - paragraphs.paragraphs_type.participation
 id: paragraph.participation.default
 targetEntityType: paragraph
@@ -35,5 +36,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_show:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden: {  }

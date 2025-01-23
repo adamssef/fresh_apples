@@ -1,0 +1,15 @@
+{
+  "name": "fresh_apples_persona",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": " npx tailwindcss -i ./css/tailwind.css -o ./dist/css/styles.css --minify",
+    "watch:css": "npx tailwindcss -i ./css/tailwind.css -o ./dist/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": ""
+}

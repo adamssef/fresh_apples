@@ -60,7 +60,7 @@
           class="flex flex-wrap gap-[16px] justify-center items-center swiper mySwiper">
           <div class="swiper-wrapper flex">
             {% for participation in show_data.participation_paragraphs %}
-              <div
+              <a href="{{ participation.persona_link }}"
                 class="bg-[#1A1A1A] swiper-slide text-white bg-[#1a1a1a] mt-6 rounded-[16px] p-4 max-w-[250px] gap-[20px] flex flex-col justify-start">
                 {% if participation.persona_image_url %}
                   <div class="w-full h-1/2 bg-cover bg-center rounded-[8px]"
@@ -81,7 +81,7 @@
                   <div>Jako: <span>{{ participation.character_name }}</span>
                   </div>
                 {% endif %}
-              </div>
+              </a>
             {% endfor %}
           </div>
           <div class="swiper-button-next"></div>
