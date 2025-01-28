@@ -1,0 +1,7 @@
+fresh_apples_reviews.update_status:
+  path: '/update-status'
+  defaults:
+    _controller: '\Drupal\fresh_apples_reviews\Controller\StatusController::updateStatus'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'

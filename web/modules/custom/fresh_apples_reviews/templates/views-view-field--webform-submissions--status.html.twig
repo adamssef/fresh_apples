@@ -1,0 +1,5 @@
+<select class="status-dropdown" data-submission-id="{{ row.sid }}">
+  <option value="in_progress" {{ output == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+  <option value="accepted" {{ output == 'accepted' ? 'selected' : '' }}>Accepted</option>
+  <option value="rejected" {{ output == 'rejected' ? 'selected' : '' }}>Rejected</option>
+</select>

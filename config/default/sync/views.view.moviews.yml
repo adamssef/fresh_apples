@@ -486,7 +486,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: 'Movie title'
+            label: 'Tytuł filmu'
             description: ''
             use_operator: false
             operator: title_op
@@ -502,6 +502,7 @@ display:
               content_editor: '0'
               administrator: '0'
               reviewer: '0'
+              regular_user: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -529,7 +530,7 @@ display:
           exposed: true
           expose:
             operator_id: field_genre_target_id_op
-            label: 'Genre (field_genre)'
+            label: Gatunek
             description: ''
             use_operator: false
             operator: field_genre_target_id_op
@@ -545,6 +546,7 @@ display:
               content_editor: '0'
               administrator: '0'
               reviewer: '0'
+              regular_user: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -582,7 +584,7 @@ display:
           exposed: true
           expose:
             operator_id: field_release_year_value_op
-            label: 'Release Year (Min)'
+            label: 'Rok premiery (Min)'
             description: ''
             use_operator: false
             operator: field_release_year_value_op
@@ -598,6 +600,7 @@ display:
               content_editor: '0'
               administrator: '0'
               reviewer: '0'
+              regular_user: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -613,6 +616,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          type: date
         field_release_year_value_1:
           id: field_release_year_value_1
           table: node__field_release_year
@@ -631,7 +635,7 @@ display:
           exposed: true
           expose:
             operator_id: field_release_year_value_1_op
-            label: 'Release Year (max)'
+            label: 'Rok premiery (max)'
             description: ''
             use_operator: false
             operator: field_release_year_value_1_op
@@ -647,6 +651,7 @@ display:
               content_editor: '0'
               administrator: '0'
               reviewer: '0'
+              regular_user: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -662,6 +667,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          type: date
       style:
         type: grid_responsive
         options:

@@ -4,3 +4,71 @@
  * @file
  * Primary module hooks for fresh_apples_reviews module.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+
+function fresh_apples_reviews_theme() {
+  return [
+    'views_view_field__webform_submissions__status' => [
+      'template' => 'views-view-field--webform-submissions--status',
+      'base hook' => 'views_view_field',
+    ]
+  ];
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function fresh_apples_reviews_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'views_form_your_view_id') {
+    foreach ($form['#rows'] as $key => $row) {
+      $submission_id = $row['#row']->_entity->id();
+
+      $form[$key]['status'] = [
+        '#type' => 'select',
+        '#options' => [
+          'in_progress' => 'In Progress',
+          'accepted' => 'Accepted',
+          'rejected' => 'Rejected',
+        ],
+        '#default_value' => $row['#row']->_entity->get('status')->value,
+        '#ajax' => [
+          'callback' => 'mymodule_update_status_callback',
+          'event' => 'change',
+          'wrapper' => 'status-wrapper-' . $submission_id,
+        ],
+      ];
+    }
+  }
+}
+
+function fresh_apples_reviews_theme_suggestions_views_view_field_alter(array &$suggestions, array &$variables, $hook) {
+  if ($variables['view']->id() === 'webform_submissions' && $variables['field']->label() === "Status") {
+    $suggestions[] = 'views_view_field__' . $variables['view']->id() . '__' . strtolower($variables['field']->label());
+  }
+}
+
+function fresh_apples_reviews_preprocess_page(&$variables) {
+  $url = \Drupal::service('path.current')->getPath();
+
+  if ($url === '/admin/structure/views/view/webform_submissions/edit/page_1' || $url === 'admin/zostan-recenzentem') {
+    $variables['#attached']['library'][] = 'fresh_apples_reviews/fresh_apples_reviews';
+  }
+
+}
+
+/**
+ * Implements hook_mail().
+ */
+function fresh_apples_reviews_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'status_update':
+      $message['subject'] = t('Status updated for submission @id', ['@id' => $params['submission_id']]);
+      $message['body'][] = t('The status for your submission "@title" has been updated to "@status".', [
+        '@title' => $params['webform_title'],
+        '@status' => $params['new_status'],
+      ]);
+      break;
+  }
+}

@@ -32,3 +32,51 @@ body {
 .form-item__label {
   color: white;
 }
+
+nav#toolbar-bar {
+  visibility: hidden;
+}
+
+nav#toolbar-bar:hover {
+  visibility: visible;
+}
+
+.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin-inline-start: 0
+}
+
+.webform-submission-form .fieldset__wrapper.fieldset__wrapper--group {
+  padding: 0;
+}
+
+.form-type-webform-markup {
+  color: white;
+  font-weight: 600;
+  font-size: 40px;
+  text-align: center;
+}
+
+.form-element {
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .webform-submission-form {
+    padding: 0 16px;
+  }
+}
+
+.webform-confirmation__message {
+  text-align: center;
+}
+
+.form-thank-you-header {
+  font-weight: 600;
+  font-size: 40px;
+  color: white;
+}
+
+.form-thank-you-content {
+  font-weight: 400;
+  color: white;
+}

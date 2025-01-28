@@ -30,6 +30,8 @@
         "drupal/structure_sync": "^2.0",
         "drupal/taxonomy_multidelete_terms": "^1.4",
         "drupal/twig_tweak": "^3.4",
+        "drupal/webform": "^6.2",
+        "drupal/webform_views": "^5.5",
         "drush/drush": "^12.5"
     },
     "conflict": {
