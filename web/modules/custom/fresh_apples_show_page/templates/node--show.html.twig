@@ -49,7 +49,6 @@
       </div>
     {% endif %}
 
-
   <div class="bottom-container flex gap-[20px] justify-center flex-col-reverse md:flex-row pb-6 w-full">
     <div
       class="flex justify-center overflow-hidden upper-container flex-col lg:flex-row max-w-[1280px] gap-[24px]">
@@ -125,6 +124,28 @@
       </div>
     </div>
 
+  </div>
+  <div class="w-full m-auto max-w-[1280px] bg-[#1A1A1A] p-4 mb-6 rounded-[16px] border border-solid border-white">
+    <div class="text-center font-semibold text-[24px] text-white pb-4">Gdzie obejrzeć</div>
+    {% if show_data.providers.rent or show_data.providers.flatrate or show_data.providers.buy %}
+      {% if show_data.providers.rent %}
+        <div class="text-white">
+          <strong>Wypożycz:</strong> {{ show_data.providers.rent|join(', ') }}
+        </div>
+      {% endif %}
+      {% if show_data.providers.flatrate %}
+        <div class="text-white">
+          <strong>Stream:</strong> {{ show_data.providers.flatrate|join(', ') }}
+        </div>
+      {% endif %}
+      {% if show_data.providers.buy %}
+        <div class="text-white">
+          <strong>Kup:</strong> {{ show_data.providers.buy|join(', ') }}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="text-white">Brak dostępnych dostawców.</div>
+    {% endif %}
   </div>
   <div class="flex max-w-[1280px] p-4 rounded-[24px] border border-solid border-white w-full gap-4">
     <div class="w-1/2">
