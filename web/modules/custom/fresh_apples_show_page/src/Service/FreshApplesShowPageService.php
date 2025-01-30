@@ -8,6 +8,8 @@ use Drupal\fresh_apples_show_page\Service\MediaService\MediaServiceInterface;
 use Drupal\fresh_apples_show_page\Service\TaxonomyService\TaxonomyServiceInterface;
 use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class FreshApplesShowPageService {
 
@@ -38,6 +40,11 @@ class FreshApplesShowPageService {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    */
+
+  protected $httpClient;
+  private const TMDB_API_KEY = '11bc8a20af20e33048b136e2b3b4acdc';
+  private const TMDB_READ_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMWJjOGEyMGFmMjBlMzMwNDhiMTM2ZTJiM2I0YWNkYyIsIm5iZiI6MTczNjg5MjI0OS45NjgsInN1YiI6IjY3ODZkZjU5Y2FhNTNlOTA5ODdhZWQyNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bM84BWvXmqw5VJ0gI1F5NqXKmJpjpfP4WpmiWCCyUqQ';
+
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
     TaxonomyServiceInterface $taxonomy_service,
@@ -47,6 +54,61 @@ class FreshApplesShowPageService {
     $this->entityTypeManager = $entity_type_manager;
     $this->taxonomyService = $taxonomy_service;
     $this->mediaService = $media_service;
+    $this->httpClient = new Client();
+  }
+
+  public function getMovieId($title) {
+    $base_url = 'https://api.themoviedb.org/3/search/movie';
+    try {
+      $response = $this->httpClient->request('GET', $base_url, [
+        'headers' => [
+          'Authorization' => 'Bearer ' . self::TMDB_READ_API_KEY,
+          'Content-Type' => 'application/json',
+        ],
+        'query' => [
+          'query' => $title,
+          'include_adult' => 'false',
+          'language' => 'en-US',
+        ],
+        'timeout' => 10,
+      ]);
+
+      $data = json_decode($response->getBody()->getContents(), TRUE);
+      return $data['results'][0]['id'] ?? NULL;
+    }
+    catch (RequestException $e) {
+      return NULL;
+    }
+  }
+
+  public function getProvidersForShow($title) {
+    $movie_id = $this->getMovieId($title);
+    if (!$movie_id) {
+      return [];
+    }
+
+    $base_url = "https://api.themoviedb.org/3/movie/{$movie_id}/watch/providers";
+    try {
+      $response = $this->httpClient->request('GET', $base_url, [
+        'headers' => [
+          'Authorization' => 'Bearer ' . self::TMDB_READ_API_KEY,
+          'Content-Type' => 'application/json',
+        ],
+        'timeout' => 10,
+      ]);
+
+      $data = json_decode($response->getBody()->getContents(), TRUE);
+      $providers = $data['results']['PL'] ?? [];
+
+      return [
+        'rent' => array_column($providers['rent'] ?? [], 'provider_name'),
+        'flatrate' => array_column($providers['flatrate'] ?? [], 'provider_name'),
+        'buy' => array_column($providers['buy'] ?? [], 'provider_name'),
+      ];
+    }
+    catch (RequestException $e) {
+      return [];
+    }
   }
 
   /**
@@ -65,6 +127,7 @@ class FreshApplesShowPageService {
     $release_year = date('Y', strtotime($node->get('field_release_year')->value));
     $genres = $node->get('field_genre')->referencedEntities();
     $genre_names = [];
+    $providers = $this->getProvidersForShow($show_title);
 
     if (!empty($genres)) {
       foreach ($genres as $genre) {
@@ -211,6 +274,7 @@ class FreshApplesShowPageService {
       'prev_rating' => $rating ?? NULL,
       'reviews_critics' => $review_data_critics,
       'reviews_regulars' => $review_data_regulars,
+      'providers' => $providers,
     ];
   }
 
