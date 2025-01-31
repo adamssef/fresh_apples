@@ -11,9 +11,8 @@
       {% if not logged_in %}
         <a class="inline-block text-white text-2xl" href="/user/login">Zaloguj się</a>
         <a class="inline-block text-white text-2xl" href="/user/register">Zarejestruj się</a>
-
       {% else %}
-        {% if 'reviewer' not in user.getroles(TRUE)  %}
+        {% if 'reviewer' not in user.getRoles() == 1 and 'admin' not in user.getRoles() == 1 %}
           <a class="inline-block bg-yellow-500 text-black text-2xl font-bold py-2 px-4 rounded hover:bg-yellow-600 transition-colors" href="/become-reviewer">Zostań recenzentem</a>
         {% endif %}
         <a class="inline-block text-white text-2xl max-w-13" href="/user/logout"><img class="w-[50px]" src="/resources/header/logout.svg" alt="Wyloguj się"></a>

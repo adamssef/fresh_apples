@@ -17,8 +17,6 @@ use Drupal\Core\Block\BlockBase;
  */
 final class HeaderMenuBlock extends BlockBase {
 
-
-
   /**
    * {@inheritdoc}
    */

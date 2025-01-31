@@ -3262,6 +3262,7 @@ display:
     display_plugin: page
     position: 5
     display_options:
+      title: 'Workflow recentzenta - status'
       fields:
         webform_submission_value_2:
           id: webform_submission_value_2
@@ -3757,6 +3758,7 @@ display:
         groups:
           1: AND
       defaults:
+        title: false
         fields: false
         filters: false
         filter_groups: false
